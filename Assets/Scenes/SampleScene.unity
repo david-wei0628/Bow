@@ -206,9 +206,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 121.6861, y: 19.79}
-  m_SizeDelta: {x: 114.3721, y: 23.772003}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -755.64594, y: -507.7773}
+  m_SizeDelta: {x: -1768.6053, y: -1029.5547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205738811
 MonoBehaviour:
@@ -232,15 +232,15 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '0
@@ -408,7 +408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456008585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 296.857, y: 0.49799997, z: 49.375797}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,6 +610,22 @@ PrefabInstance:
     - target: {fileID: 8514634799112535916, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514634799112535916, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.2747729
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514634799112535916, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.96150917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514634799112535916, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514634799112535916, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -148.103
       objectReference: {fileID: 0}
     - target: {fileID: 9027124049610543990, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
       propertyPath: m_IsActive
@@ -820,7 +836,7 @@ MonoBehaviour:
   Arrow: {fileID: 5570349508394428617, guid: 84513d7449ef0b847a5af7757578a669, type: 3}
   ArrowBone: {fileID: 1593525454}
   Us: {fileID: 1194116683}
-  ArrowSpeed: 10
+  ArrowSpeed: 20
 --- !u!95 &1194116683 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 6acf054716d60f742ae37b99b2859ac4, type: 3}
@@ -889,14 +905,14 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
+    width: 10
+    height: 10
+  near clip plane: 0.5
   far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 100
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1060,9 +1076,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 32.7852, y: 19.8361}
-  m_SizeDelta: {x: 58.7703, y: 23.6723}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -895.1945, y: -507.7773}
+  m_SizeDelta: {x: -1799.7119, y: -1029.5547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930543700
 MonoBehaviour:
@@ -1086,15 +1102,15 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Point:'
@@ -1119,7 +1135,7 @@ GameObject:
   - component: {fileID: 2008029334}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

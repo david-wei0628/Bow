@@ -33,8 +33,11 @@ public class ArrowHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        this.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        this.GetComponent<Rigidbody>().freezeRotation = true;
+        if (collision.transform.tag == "Target" || collision.transform.tag == "Terrain")
+        {
+            this.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody>().freezeRotation = true;
+        }
        
         Destroy(this.gameObject,10.0f);
     }

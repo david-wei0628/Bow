@@ -8,6 +8,7 @@ TagManager:
   - Arrow
   - Target
   - UI
+  - Terrain
   layers:
   - Default
   - TransparentFX

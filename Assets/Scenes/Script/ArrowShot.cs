@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArrowShot : MonoBehaviour
 {
-    public float ArrowSpeed = 10f;
+    public float ArrowSpeed = 20f;
     // Start is called before the first frame update
     void Start()
     {
