@@ -12,12 +12,23 @@ public class UserMove : MonoBehaviour
     void Start()
     {
         animation = UserModel.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         UserModel_Move();
+        if (this.transform.position.y > 0)
+        {
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            this.GetComponent<Rigidbody>().AddForce(Vector3.up * -9.81f, ForceMode.Acceleration);
+        }
+        else if (this.transform.position.y <= 0)
+        {
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY |  RigidbodyConstraints.FreezeRotation;
+        }
+
     }
 
 
