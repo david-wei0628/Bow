@@ -7,7 +7,7 @@ public class Interactive_Even : MonoBehaviour
 {
     public GameObject MoveEven;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     { 
         switch (this.gameObject.name)
         {
@@ -31,7 +31,7 @@ public class Interactive_Even : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         switch (this.gameObject.name)
         {
@@ -53,19 +53,19 @@ public class Interactive_Even : MonoBehaviour
     }
 
     void RangeEven()
-    {
+    {        
         //this.gameObject.SetActive(false);
-        if (Camera.main.transform.localEulerAngles.x == 30)
+        if (MoveEven.transform.localEulerAngles.x == 90)
         {
-            Camera.main.transform.localEulerAngles = new Vector3(90, 0, 0);
-            Camera.main.transform.localPosition = new Vector3(0, 150, 0);
+            MoveEven.transform.localEulerAngles = new Vector3(30, 0, 0);
+            MoveEven.transform.localPosition = new Vector3(0, 50, -20);
         }
-        else if (Camera.main.transform.localEulerAngles.x == 90)
+        else/* if (MoveEven.transform.localEulerAngles.x == 90)*/
         {
-            Camera.main.transform.localEulerAngles = new Vector3(30, 0, 0);
-            Camera.main.transform.localPosition = new Vector3(0, 50, -20);
+            MoveEven.transform.localEulerAngles = new Vector3(90, 0, 0);
+            MoveEven.transform.localPosition = new Vector3(0, 150, 0);
         }
-        print(Camera.main.transform.localEulerAngles.x);
+        
     }
 
     void TrapEvenEnter(int value)
@@ -97,4 +97,6 @@ public class Interactive_Even : MonoBehaviour
                 break;
         }
     }
+
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Target
   - UI
   - Terrain
+  - Wall
   layers:
   - Default
   - TransparentFX
