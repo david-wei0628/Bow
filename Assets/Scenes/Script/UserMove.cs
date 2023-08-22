@@ -20,7 +20,7 @@ public class UserMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UserModel_Move();
+        
         if (this.transform.position.y > 0.01f)
         {
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
@@ -33,6 +33,8 @@ public class UserMove : MonoBehaviour
 
         ForwardDir();
     }
+
+    private void FixedUpdate() => UserModel_Move();
 
     void UserModel_Move()
     {
@@ -106,12 +108,12 @@ public class UserMove : MonoBehaviour
     void ForwardDir()
     {
         Vector3 YUp = new Vector3(0, 10, 0);
-        if (Physics.Raycast(UserModel.transform.position + YUp, UserModel.transform.TransformDirection(Vector3.forward), out hit, 15f))
+        if (Physics.Raycast(UserModel.transform.position + YUp, UserModel.transform.TransformDirection(Vector3.forward), out hit, 5f))
         {
             Debug.DrawRay(UserModel.transform.position + YUp, UserModel.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             if (hit.collider.tag == "Wall")
             {
-                UserSpeed = 0;
+                UserSpeed = 10;
             }
         }
         else
