@@ -10,6 +10,13 @@ TagManager:
   - UI
   - Terrain
   - Wall
+  - Tile
+  - Room
+  - Road
+  - One
+  - Two
+  - Three
+  - Four
   layers:
   - Default
   - TransparentFX

@@ -88,8 +88,9 @@ public class Interactive_Even : MonoBehaviour
                 ModelEven.GetComponent<UserMove>().UserSpeed = 100;
                 break;
             case 4:
-                print(ModelEven.name);
-                ModelEven.gameObject.transform.position += new Vector3(70, 0, 0);
+                //ModelEven.GetComponent<Animator>().enabled = true;
+                ModelEven.GetComponent<Animator>().SetBool("Open", true);
+                //ModelEven.gameObject.transform.position += new Vector3(70, 0, 0);
                 break;
         }
     }
@@ -102,7 +103,8 @@ public class Interactive_Even : MonoBehaviour
                 ModelEven.GetComponent<UserMove>().UserSpeed =200;
                 break;
             case 4:
-                ModelEven.gameObject.transform.position -= new Vector3(70, 0, 0);
+                ModelEven.GetComponent<Animator>().SetBool("Close", true);
+                //ModelEven.gameObject.transform.position -= new Vector3(70, 0, 0);
                 break;
         }
     }
