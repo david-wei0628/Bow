@@ -15,6 +15,17 @@ public class RoomList : MonoBehaviour
         RoomPos.Add(ClassRoom.RV3);
         ClassRoom.RList = RoomPos;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            foreach (Vector3 NRP in ClassRoom.RList)
+            {
+                print(NRP);
+            }
+        }
+    }
 }
 
 public class ClassRoom

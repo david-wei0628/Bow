@@ -5,7 +5,7 @@ using UnityEngine;
 public class UserMove : MonoBehaviour
 {
     public GameObject UserModel;
-    Animator animation;
+    Animator animation = new Animator();
     public float UserSpeed = 200;
     Ray ray;
     RaycastHit hit;
