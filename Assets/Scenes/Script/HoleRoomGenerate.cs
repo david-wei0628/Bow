@@ -7,10 +7,8 @@ public class HoleRoomGenerate : MonoBehaviour
     public List<GameObject> HoleRoomList;
     [SerializeField]
     private bool[] AroundBool = new bool[4];
-
-    [SerializeField]
-    private bool[] OnAroundBool = new bool[4];
-    //0->前方|1->後方|2->左方|3->右方
+    //0->Forward|1->Back|2->Left|3->Right
+    private bool[] NextAroundBool = new bool[4];
 
     //Vector3 F = new Vector3(0, 0, 10);
     Vector3 F = Vector3.forward * 10;
@@ -24,7 +22,7 @@ public class HoleRoomGenerate : MonoBehaviour
     void Start()
     {
         //OnAroundBool = AroundBool;
-        //ExporTo();
+        ExporTo();
     }
 
     // Update is called once per frame
@@ -34,6 +32,7 @@ public class HoleRoomGenerate : MonoBehaviour
         {
             HoleRoomBuilder();
         }
+
     }
 
     private void FixedUpdate()
@@ -49,19 +48,19 @@ public class HoleRoomGenerate : MonoBehaviour
         Vector3 NewPos = this.transform.position;
         GameObject GrapGameObject = gameObject.transform.parent.gameObject;
 
-        if (AroundBool[0] && AroundRoom(F))
+        if (NextAroundBool[0] && AroundRoom(F))
         {
             RangeRoom(NewPos + F, "F", GrapGameObject);
         }
-        if (AroundBool[1] && AroundRoom(B))
+        if (NextAroundBool[1] && AroundRoom(B))
         {
             RangeRoom(NewPos + B, "B", GrapGameObject);
         }
-        if (AroundBool[2] && AroundRoom(L))
+        if (NextAroundBool[2] && AroundRoom(L))
         {
             RangeRoom(NewPos + L, "L", GrapGameObject);
         }
-        if (AroundBool[3] && AroundRoom(R))
+        if (NextAroundBool[3] && AroundRoom(R))
         {
             RangeRoom(NewPos + R, "R", GrapGameObject);
         }
@@ -71,26 +70,42 @@ public class HoleRoomGenerate : MonoBehaviour
 
     void RangeRoom(Vector3 NewPos, string Entrance, GameObject GrapGameObject)
     {
-        var NextRoomType = Random.Range(0, HoleRoomList.Count);
+        int NextRoomType;
+        if (ClassRoom.RoomCount > 10 && ClassRoom.RoomCount == 1)
+        {
+            NextRoomType = Random.Range(0, HoleRoomList.Count);
+        }
+        else if (ClassRoom.RoomCount >= 30)
+        {
+            NextRoomType = 0;
+        }
+        else
+        {
+            NextRoomType = Random.Range(1, HoleRoomList.Count);
+        }
+
         GameObject NewRoom;
         NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
         //NewRoom = Instantiate(HoleRoomList[1], NewPos, Quaternion.identity, GrapGameObject.transform);
-
         NewRoom.name = "HoleRoom";
 
         switch (Entrance)
         {
             case "F":
-                NewRoom.transform.localEulerAngles += new Vector3(0, 0, 0);
+                //NewRoom.transform.localEulerAngles = new Vector3(0, 0, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 0, 0);
                 break;
             case "B":
-                NewRoom.transform.localEulerAngles += new Vector3(0, 180, 0);
+                //NewRoom.transform.localEulerAngles = new Vector3(0, 180, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 180, 0);
                 break;
             case "L":
-                NewRoom.transform.localEulerAngles += new Vector3(0, -90, 0);
+                //NewRoom.transform.localEulerAngles = new Vector3(0, 270, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 270, 0);
                 break;
             case "R":
-                NewRoom.transform.localEulerAngles += new Vector3(0, 90, 0);
+                //NewRoom.transform.localEulerAngles = new Vector3(0, 90, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 90, 0);
                 break;
         }
 
@@ -129,24 +144,28 @@ public class HoleRoomGenerate : MonoBehaviour
         switch (transform.localEulerAngles.y)
         {
             case 0:
-                break;
-            case -90:
-                AroundBool[0] = OpenR;
-                AroundBool[1] = OpenL;
-                AroundBool[2] = OpenF;
-                AroundBool[3] = OpenB;
+                NextAroundBool[0] = OpenF;
+                NextAroundBool[1] = OpenB;
+                NextAroundBool[2] = OpenL;
+                NextAroundBool[3] = OpenR;
                 break;
             case 90:
-                AroundBool[0] = OpenL;
-                AroundBool[1] = OpenR;
-                AroundBool[2] = OpenB;
-                AroundBool[3] = OpenF;
+                NextAroundBool[0] = OpenL;
+                NextAroundBool[1] = OpenR;
+                NextAroundBool[2] = OpenB;
+                NextAroundBool[3] = OpenF;
                 break;
-            case -180:
-                AroundBool[0] = OpenB;
-                AroundBool[1] = OpenF;
-                AroundBool[2] = OpenR;
-                AroundBool[3] = OpenL;
+            case 180:
+                NextAroundBool[0] = OpenB;
+                NextAroundBool[1] = OpenF;
+                NextAroundBool[2] = OpenR;
+                NextAroundBool[3] = OpenL;
+                break;
+            case 270:
+                NextAroundBool[0] = OpenR;
+                NextAroundBool[1] = OpenL;
+                NextAroundBool[2] = OpenF;
+                NextAroundBool[3] = OpenB;
                 break;
         }
 

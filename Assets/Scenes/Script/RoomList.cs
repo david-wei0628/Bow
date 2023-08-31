@@ -14,17 +14,7 @@ public class RoomList : MonoBehaviour
     {
         RoomPos.Add(ClassRoom.RV3);
         ClassRoom.RList = RoomPos;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            foreach (Vector3 NRP in ClassRoom.RList)
-            {
-                print(NRP);
-            }
-        }
+        ClassRoom.RoomCount = RoomPos.Count;
     }
 }
 
@@ -32,4 +22,5 @@ public class ClassRoom
 {
     public static Vector3 RV3;
     public static List<Vector3> RList;
+    public static int RoomCount;
 }
