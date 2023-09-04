@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5809458424453348936}
+  - component: {fileID: 2191453525524842477}
   - component: {fileID: 4866480190908370667}
+  - component: {fileID: 8140421479834877916}
   m_Layer: 0
   m_Name: FourHoleRoom
   m_TagString: Four
@@ -34,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2191453525524842477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809458424453348939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e6700e0cf232646a0903d1cf63f905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4866480190908370667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +68,20 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939}
   AroundBool: 01010101
+  NextAroundBool: 00000000
+--- !u!65 &8140421479834877916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809458424453348939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &7432411874528538984
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +96,7 @@ GameObject:
   - component: {fileID: 4135458947056215333}
   - component: {fileID: 6313475687512891578}
   - component: {fileID: 5339306135215341706}
+  - component: {fileID: 5859043591616086692}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Room
@@ -187,6 +216,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6ad20116b353848bae9d343b5bbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5859043591616086692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432411874528538984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ee3020fc854864eb9582dbff3f878b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 2792190114821680699, guid: 55c380e09b96f0b4196aa1b72b3806e6, type: 3}
+  Wall: {fileID: -927199367670048503, guid: b5b35d990d7da0e4ba483e31966e1ba6, type: 3}
 --- !u!1001 &5500370212407970900
 PrefabInstance:
   m_ObjectHideFlags: 0

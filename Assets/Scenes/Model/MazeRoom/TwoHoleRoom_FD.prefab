@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2220008988388229727}
+  - component: {fileID: -2560797426440312203}
   - component: {fileID: 6511756501990019969}
+  - component: {fileID: 288196115939413352}
   m_Layer: 0
   m_Name: TwoHoleRoom_FD
   m_TagString: Two
@@ -34,6 +36,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2560797426440312203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322512534842979361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e6700e0cf232646a0903d1cf63f905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6511756501990019969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +68,20 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 01010000
+  NextAroundBool: 00000000
+--- !u!65 &288196115939413352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322512534842979361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &7956245847129947301
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +96,7 @@ GameObject:
   - component: {fileID: 598485605420067897}
   - component: {fileID: 5826857838650459920}
   - component: {fileID: 5485699165780169636}
+  - component: {fileID: 8353353821202412695}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Room
@@ -187,6 +216,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6ad20116b353848bae9d343b5bbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8353353821202412695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956245847129947301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ee3020fc854864eb9582dbff3f878b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 2792190114821680699, guid: 55c380e09b96f0b4196aa1b72b3806e6, type: 3}
+  Wall: {fileID: -927199367670048503, guid: b5b35d990d7da0e4ba483e31966e1ba6, type: 3}
 --- !u!1001 &2198989847631256596
 PrefabInstance:
   m_ObjectHideFlags: 0

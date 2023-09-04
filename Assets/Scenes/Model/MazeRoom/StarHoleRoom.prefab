@@ -143,6 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4358022817553400986}
   - component: {fileID: 8462952770362677189}
+  - component: {fileID: 7424184581926429095}
   m_Layer: 0
   m_Name: StarHoleRoom
   m_TagString: One
@@ -186,6 +187,19 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 00000001
+--- !u!65 &7424184581926429095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293122198831289948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &1253736939906920407
 PrefabInstance:
   m_ObjectHideFlags: 0

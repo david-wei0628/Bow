@@ -18,17 +18,4 @@ public class HoleRoomOpenAnimat : MonoBehaviour
             HoleRoomAnimal.SetTrigger("RoadDown");
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && this.tag == "Room")
-        {
-            HoleRoomAnimal.SetTrigger("Create");
-        }
-        if (Input.GetKeyDown(KeyCode.A) && this.tag == "Road")
-        {
-            HoleRoomAnimal.SetTrigger("RoadDown");
-        }
-    }
 }
