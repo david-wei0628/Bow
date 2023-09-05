@@ -8,7 +8,7 @@ public class HoleRoomGenerate : MonoBehaviour
     [SerializeField]
     private bool[] AroundBool = new bool[4];
     //0->Forward|1->Back|2->Left|3->Right
-    public bool[] NextAroundBool = new bool[4];
+    bool[] NextAroundBool = new bool[4];
 
     private GameObject Plane;
 
@@ -30,10 +30,27 @@ public class HoleRoomGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            HoleRoomBuilder();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    HoleRoomBuilder();
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B"); ;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L"); ;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R"); ;
+        //}
 
     }
 
@@ -55,11 +72,11 @@ public class HoleRoomGenerate : MonoBehaviour
             if (AroundRoom(F))
             {
                 RangeRoom(NewPos + F, "F", GrapGameObject);
-                //Plane.GetComponent<RoomWallInstan>().DoorInstanEven();
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform.position, "F");
+                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
             }
         }
 
@@ -68,11 +85,11 @@ public class HoleRoomGenerate : MonoBehaviour
             if (AroundRoom(B))
             {
                 RangeRoom(NewPos + B, "B", GrapGameObject);
-                //Plane.GetComponent<RoomWallInstan>().DoorInstanEven();
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
             }
             else
             {
-                //Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform.position, "B");
+                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
             }
         }
 
@@ -81,11 +98,11 @@ public class HoleRoomGenerate : MonoBehaviour
             if (AroundRoom(L))
             {
                 RangeRoom(NewPos + L, "L", GrapGameObject);
-                //Plane.GetComponent<RoomWallInstan>().DoorInstanEven();
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform.position, "L");
+                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
             }
         }
 
@@ -94,11 +111,11 @@ public class HoleRoomGenerate : MonoBehaviour
             if (AroundRoom(R))
             {
                 RangeRoom(NewPos + R, "R", GrapGameObject);
-                //Plane.GetComponent<RoomWallInstan>().DoorInstanEven();
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform.position, "R");
+                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
             }
         }
 

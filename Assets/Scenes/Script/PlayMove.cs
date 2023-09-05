@@ -6,8 +6,9 @@ public class PlayMove : MonoBehaviour
 {
     public GameObject PlayerCam;
     public GameObject PlayerMove;
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 1000f;
     float xRotation = 0f;
+    public float MoveSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,15 @@ public class PlayMove : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0)
         {
-            this.transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * 20, 0, 0);
+            this.transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * MoveSpeed, 0, 0);
         }
         if (Input.GetAxis("Vertical") != 0)
         {
-            this.transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * 20);
+            this.transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            this.transform.Translate(0, Time.deltaTime * MoveSpeed, 0);
         }
 
         if (Cursor.lockState.ToString() == "Locked")
@@ -54,7 +59,7 @@ public class PlayMove : MonoBehaviour
         if (Input.GetAxis("Mouse Y") != 0)
         {
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 20f); // 讓頭部旋轉在90度
+            xRotation = Mathf.Clamp(xRotation, -90f, 70f); // 讓頭部旋轉在90度
             PlayerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
     }

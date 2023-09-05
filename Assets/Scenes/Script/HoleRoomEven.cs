@@ -20,9 +20,12 @@ public class HoleRoomEven : MonoBehaviour
             case "Four":
                 FourRoomEven();
                 break;
+            default://tag == StartOne
+                this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+                break;
         }
-
-        this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
 
     void OneRoomEven()
@@ -31,14 +34,14 @@ public class HoleRoomEven : MonoBehaviour
     }
     void TwoRoomEven()
     {
-
+        this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
     }
     void ThreeRoomEven()
     {
-
+        this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
     }
     void FourRoomEven()
     {
-
+        this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
     }
 }

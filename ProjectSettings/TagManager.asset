@@ -18,6 +18,7 @@ TagManager:
   - Three
   - Four
   - Door
+  - StartOne
   layers:
   - Default
   - TransparentFX
