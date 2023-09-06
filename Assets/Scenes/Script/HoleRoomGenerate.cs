@@ -30,10 +30,11 @@ public class HoleRoomGenerate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    HoleRoomBuilder();
-        //}
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            //HoleRoomBuilder();
+            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+        }
 
         //if (Input.GetKeyDown(KeyCode.Alpha1))
         //{
@@ -76,7 +77,14 @@ public class HoleRoomGenerate : MonoBehaviour
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+                if (this.transform.localEulerAngles.y == 180)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+                }
             }
         }
 
@@ -89,7 +97,14 @@ public class HoleRoomGenerate : MonoBehaviour
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+                if (this.transform.localEulerAngles.y == 0)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+                }
             }
         }
 
@@ -102,7 +117,14 @@ public class HoleRoomGenerate : MonoBehaviour
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+                if (this.transform.localEulerAngles.y == 90)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+                }
             }
         }
 
@@ -115,7 +137,14 @@ public class HoleRoomGenerate : MonoBehaviour
             }
             else
             {
-                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+                if (this.transform.localEulerAngles.y == 270)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+                }
             }
         }
 

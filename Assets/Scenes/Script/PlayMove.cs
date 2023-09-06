@@ -41,6 +41,11 @@ public class PlayMove : MonoBehaviour
             this.transform.Translate(0, Time.deltaTime * MoveSpeed, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GameObject.Find("Uc").transform.position = PlayerCam.transform.position;
+        }
+
         if (Cursor.lockState.ToString() == "Locked")
         {
             PlayRat();

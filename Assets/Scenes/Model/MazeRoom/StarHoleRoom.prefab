@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 149005941808088939}
   - component: {fileID: 8816782456567467836}
   - component: {fileID: 2796435128831499333}
+  - component: {fileID: 2399327597489377032}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Room
@@ -133,6 +134,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6ad20116b353848bae9d343b5bbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2399327597489377032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967313792420650779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ee3020fc854864eb9582dbff3f878b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Door: {fileID: 2792190114821680699, guid: 55c380e09b96f0b4196aa1b72b3806e6, type: 3}
+  Wall: {fileID: 2172304400674905613, guid: 7d494c7d9fbd8b54891ccada9c3350c6, type: 3}
 --- !u!1 &4293122198831289948
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,7 +68,6 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 01010000
-  NextAroundBool: 00000000
 --- !u!65 &288196115939413352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Door: {fileID: 2792190114821680699, guid: 55c380e09b96f0b4196aa1b72b3806e6, type: 3}
-  Wall: {fileID: -927199367670048503, guid: b5b35d990d7da0e4ba483e31966e1ba6, type: 3}
+  Wall: {fileID: 2172304400674905613, guid: 7d494c7d9fbd8b54891ccada9c3350c6, type: 3}
 --- !u!1001 &2198989847631256596
 PrefabInstance:
   m_ObjectHideFlags: 0

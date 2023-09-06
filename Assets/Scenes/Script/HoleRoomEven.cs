@@ -6,7 +6,7 @@ public class HoleRoomEven : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.tag)
+        switch (gameObject.tag)
         {
             case "One":
                 OneRoomEven();
