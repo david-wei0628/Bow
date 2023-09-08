@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 1159759535519752607}
   - component: {fileID: 1979692482454835512}
   - component: {fileID: 6712138119027393835}
+  - component: {fileID: 1007921563799116562}
   - component: {fileID: 3093309975287787206}
   m_Layer: 0
   m_Name: ThreeHoleRoom
@@ -216,6 +217,18 @@ MonoBehaviour:
   - {fileID: 9181249189271911246}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 00010101
+--- !u!114 &1007921563799116562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181249189271911246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &3093309975287787206
 BoxCollider:
   m_ObjectHideFlags: 0

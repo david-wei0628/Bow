@@ -404,6 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908084062}
   - component: {fileID: 908084063}
+  - component: {fileID: 908084064}
   m_Layer: 0
   m_Name: RoomScenes
   m_TagString: Untagged
@@ -440,6 +441,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomPos: []
+  StartRoom: {fileID: 8462952771460344166}
+--- !u!114 &908084064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908084061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34d4cd874ce86f4184ac283ce5e2156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076499224
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,3 +797,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
+--- !u!1 &8462952771460344166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4293122198831289948, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
+  m_PrefabInstance: {fileID: 8462952771460344165}
+  m_PrefabAsset: {fileID: 0}

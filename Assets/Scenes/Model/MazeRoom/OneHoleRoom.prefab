@@ -158,6 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5262662998727497602}
   - component: {fileID: 3998842571880871149}
+  - component: {fileID: -6453723707637233780}
   - component: {fileID: 191181179140411925}
   m_Layer: 0
   m_Name: OneHoleRoom
@@ -193,6 +194,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14e6700e0cf232646a0903d1cf63f905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6453723707637233780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685312188324054340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &191181179140411925

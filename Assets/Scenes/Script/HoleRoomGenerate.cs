@@ -11,7 +11,7 @@ public class HoleRoomGenerate : MonoBehaviour
     bool[] NextAroundBool = new bool[4];
 
     private GameObject Plane;
-
+    bool DWINS = true;
     //Vector3 F = new Vector3(0, 0, 10);
     Vector3 F = Vector3.forward * 10;
     //Vector3 D = new Vector3(0, 0, -10);
@@ -33,26 +33,12 @@ public class HoleRoomGenerate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             //HoleRoomBuilder();
-            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
         }
 
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //if (Plane.transform.position.y == 0 && DWINS)
         //{
-        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+        //    DooeWall();
         //}
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B"); ;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L"); ;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R"); ;
-        //}
-
     }
 
     private void FixedUpdate()
@@ -193,13 +179,8 @@ public class HoleRoomGenerate : MonoBehaviour
                 break;
         }
 
-        //ExporTo(NewRoom, Entrance);
-        //if (!NewRoom.gameObject.GetComponent<HoleRoomGenerate>().enabled)
-        //{
-        //    NewRoom.gameObject.GetComponent<HoleRoomGenerate>().enabled = true;
-        //}
-
-        ClassRoom.RV3 = NewRoom.transform.position;
+        //ClassRoom.RV3 = NewRoom.transform.position;
+        ClassRoom.RV3 = NewRoom;
         GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
 
         //Destroy(this.gameObject);
@@ -208,10 +189,12 @@ public class HoleRoomGenerate : MonoBehaviour
     bool AroundRoom(Vector3 NextRoomPos)
     {
         //var NRP = this.transform.position + NextRoomPos;
-        foreach (Vector3 NRP in ClassRoom.RList)
+        //foreach (Vector3 NRP in ClassRoom.RList)
+        foreach (GameObject NRP in ClassRoom.RList)
         {
             //print(NRP);
-            if (NRP == (this.transform.position + NextRoomPos))
+            //if (NRP == (this.transform.position + NextRoomPos))
+            if (NRP.transform.position == (this.transform.position + NextRoomPos))
             {
                 return false;
             }
@@ -253,6 +236,86 @@ public class HoleRoomGenerate : MonoBehaviour
                 NextAroundBool[3] = OpenB;
                 break;
         }
-
     }
+
+    //void DooeWall()
+    //{
+    //    if (NextAroundBool[0])
+    //    {
+    //        if (AroundRoom(F))
+    //        { 
+    //            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+    //        }
+    //        else
+    //        {
+    //            if (this.transform.localEulerAngles.y == 180)
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+    //            }
+    //            else
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+    //            }
+    //        }
+    //    }
+
+    //    if (NextAroundBool[1])
+    //    {
+    //        if (AroundRoom(B))
+    //        {
+    //            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+    //        }
+    //        else
+    //        {
+    //            if (this.transform.localEulerAngles.y == 0)
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+    //            }
+    //            else
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+    //            }
+    //        }
+    //    }
+
+    //    if (NextAroundBool[2])
+    //    {
+    //        if (AroundRoom(L))
+    //        {
+    //            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+    //        }
+    //        else
+    //        {
+    //            if (this.transform.localEulerAngles.y == 90)
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+    //            }
+    //            else
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+    //            }
+    //        }
+    //    }
+
+    //    if (NextAroundBool[3])
+    //    {
+    //        if (AroundRoom(R))
+    //        {
+    //            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+    //        }
+    //        else
+    //        {
+    //            if (this.transform.localEulerAngles.y == 270)
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+    //            }
+    //            else
+    //            {
+    //                Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+    //            }
+    //        }
+    //    }
+    //    DWINS = false;
+    //    Destroy(Plane.GetComponent<RoomWallInstan>());
+    //}
 }
