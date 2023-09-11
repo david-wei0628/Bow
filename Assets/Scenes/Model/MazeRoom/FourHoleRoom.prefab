@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5809458424453348936}
   - component: {fileID: 2191453525524842477}
   - component: {fileID: 4866480190908370667}
-  - component: {fileID: -4518235385488524489}
   - component: {fileID: 8140421479834877916}
   m_Layer: 0
   m_Name: FourHoleRoom
@@ -69,18 +68,6 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939}
   AroundBool: 01010101
---- !u!114 &-4518235385488524489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809458424453348939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &8140421479834877916
 BoxCollider:
   m_ObjectHideFlags: 0

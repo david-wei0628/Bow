@@ -62,12 +62,12 @@ public class RoomWallInstan : MonoBehaviour
         }
     }
 
-    void DoorOpen()
+    public void DoorOpen()
     {
 
     }
 
-    void DoorClose()
+    public void DoorClose()
     {
 
     }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2220008988388229727}
   - component: {fileID: -2560797426440312203}
   - component: {fileID: 6511756501990019969}
-  - component: {fileID: -6394558113775098546}
   - component: {fileID: 288196115939413352}
   m_Layer: 0
   m_Name: TwoHoleRoom_FD
@@ -69,18 +68,6 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 01010000
---- !u!114 &-6394558113775098546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5322512534842979361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &288196115939413352
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class Other : MonoBehaviour
 {
+    public List<bool> Exit ;
+
+
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.GetChild(0).transform.position.y == 0)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            //this.gameObject.GetComponent<HoleRoomGenerate>().DooeWall();
-            Destroy(this.gameObject.GetComponent<Other>());
+            print("");
         }
     }
 
+    public void RoomExit()
+    {
+        print(RoomExitValue.Toon);
+    }
+}
+
+public class RoomExitValue
+{
+    public static List<bool> Toon;
 }

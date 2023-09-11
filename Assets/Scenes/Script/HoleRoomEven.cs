@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Room Even:Collider Tigger
+/// New Advance Room Instantiate
+/// </summary>
 public class HoleRoomEven : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
@@ -20,8 +24,8 @@ public class HoleRoomEven : MonoBehaviour
             case "Four":
                 FourRoomEven();
                 break;
-            default://tag == StartOne
-                this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+            default://OR case "StartOne":
+                //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
                 break;
         }
         //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();

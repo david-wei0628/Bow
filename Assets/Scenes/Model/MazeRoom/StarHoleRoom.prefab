@@ -157,10 +157,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4358022817553400986}
-  - component: {fileID: 1264373250909990628}
+  - component: {fileID: 2635530136711334366}
   - component: {fileID: 8462952770362677189}
-  - component: {fileID: -5204978673896270662}
-  - component: {fileID: 7424184581926429095}
+  - component: {fileID: -8489056777010299609}
   m_Layer: 0
   m_Name: StarHoleRoom
   m_TagString: StartOne
@@ -185,7 +184,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1264373250909990628
+--- !u!114 &2635530136711334366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,19 +215,7 @@ MonoBehaviour:
   - {fileID: 9181249189271911246, guid: 99b2c913424dd1148a4ee96f474f5be6, type: 3}
   - {fileID: 5809458424453348939, guid: b7962411de4d3414784871eae4308250, type: 3}
   AroundBool: 00000001
---- !u!114 &-5204978673896270662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4293122198831289948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &7424184581926429095
+--- !u!65 &-8489056777010299609
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +224,7 @@ BoxCollider:
   m_GameObject: {fileID: 4293122198831289948}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.6, z: 0}
