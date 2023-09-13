@@ -26,7 +26,7 @@ public class InitialGenerationRoom : MonoBehaviour
     {
         RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
         RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        Destroy(RoomPos[RestRoom].gameObject.GetComponent<HoleRoomEven>());
+        //Destroy(RoomPos[RestRoom].gameObject.GetComponent<HoleRoomEven>());
         RestRoom++;
     }
 

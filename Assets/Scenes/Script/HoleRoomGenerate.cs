@@ -54,6 +54,9 @@ public class HoleRoomGenerate : MonoBehaviour
         GameObject GrapGameObject = gameObject.transform.parent.gameObject;
         //DoorWall();
 
+        //ClassRoom.RV3 = this.gameObject;
+        //GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
+
         NextRoomIns(NewPos, GrapGameObject);
 
         //Destroy(Plane.GetComponent<RoomWallInstan>());
@@ -110,10 +113,11 @@ public class HoleRoomGenerate : MonoBehaviour
         }
 
         //ClassRoom.RV3 = NewRoom.transform.position;
+
         ClassRoom.RV3 = NewRoom;
+        ClassRoom.RoomAround = NextAroundBool;
         GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
 
-        //RoomExitValue.Toon = NextAroundBool;
         //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();
 
         //Destroy(this.gameObject);
@@ -123,6 +127,7 @@ public class HoleRoomGenerate : MonoBehaviour
     {
         //var NRP = this.transform.position + NextRoomPos;
         //foreach (Vector3 NRP in ClassRoom.RList)
+
         foreach (GameObject NRP in ClassRoom.RList)
         {
             //if (NRP == (this.transform.position + NextRoomPos))

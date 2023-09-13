@@ -3,27 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(RoomList))]
+//[CustomEditor(typeof(RoomList))]
+[CustomEditor(typeof(Other))]
 public class RoomListEditor : Editor
 {
-	public override void OnInspectorGUI()
-	{
-		serializedObject.Update();
-		Show(serializedObject.FindProperty("RoomPrefab"));
+    public override void OnInspectorGUI()
+    {
+        Other other = (Other)target;
+        //RoomList RoomList = (RoomList)target;
 
-		serializedObject.ApplyModifiedProperties();
-	}
+        GUILayout.BeginHorizontal();
+        //EditorGUILayout.LabelField("StartAround");
+        //for (int i = 0; i < RoomList.StartAround.Count; i++)
+        //{
+        //    EditorGUILayout.Toggle(RoomList.StartAround[i]);
+        //}
+        //EditorGUILayout.Toggle(other.Exit);
+        for (var i = 0; i < other.Exit.Count; i++)
+        {
+            EditorGUILayout.Toggle(other.Exit[i][0]);
+            EditorGUILayout.Toggle(other.Exit[i][1]);
+            EditorGUILayout.Toggle(other.Exit[i][2]);
+            EditorGUILayout.Toggle(other.Exit[i][3]);
+        }
 
-	public static void Show(SerializedProperty list)
-	{
-		EditorGUILayout.PropertyField(list);
-		if (list.isExpanded)
-		{
-			for (int i = 0; i < list.arraySize; i++)
-			{
-				EditorGUILayout.PropertyField(list.GetArrayElementAtIndex(i));
-			}
-		}
-		EditorGUI.indentLevel -= 1;
-	}
+        GUILayout.EndHorizontal();
+
+        base.OnInspectorGUI();
+    }
+      
 }
+
+

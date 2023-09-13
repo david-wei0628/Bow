@@ -10,32 +10,27 @@ using UnityEditor;
 public class RoomList : MonoBehaviour
 {
     //public List<Vector3> RoomPos;
-    public List<GameObject> RoomPrefab;
     public GameObject StartRoom;
+    public List<bool> StartAround = new List<bool>(ClassRoom.RoomAround);
+    public List<GameObject> RoomPrefab;
+    //public List<GameObject> ParentRoomPrefab;
 
     private void Awake()
     {
         //RoomPos.Add(Vector3.zero);
         RoomPrefab.Add(StartRoom);
-        //StartRoom.GetComponent<HoleRoomGenerate>().DooeWall();
+        //RoomPrefab.Add(StartRoom, StartAround);
         ClassRoom.RList = RoomPrefab;
     }
 
     public void RoomData()
     {
         RoomPrefab.Add(ClassRoom.RV3);
+        //RoomPrefab.Add(ClassRoom.RV3, ClassRoom.RoomAround);
         ClassRoom.RList = RoomPrefab;
         ClassRoom.RoomCount = RoomPrefab.Count;
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Z))
-    //    {
-    //        var NUP = ClassRoom.RList.Exists(R => R.transform.position == new Vector3(10,0,0));
-    //        print(NUP);
-    //    }
-    //}
+   
 }
 
 public class ClassRoom
@@ -43,11 +38,5 @@ public class ClassRoom
     public static GameObject RV3;
     public static List<GameObject> RList;
     public static int RoomCount;
-}
-
-class Room
-{
-    public GameObject R;
-    public GameObject R1;
-    public GameObject R2;
+    public static bool[] RoomAround = new bool[4];
 }
