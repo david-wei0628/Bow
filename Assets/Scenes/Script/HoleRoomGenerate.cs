@@ -115,7 +115,7 @@ public class HoleRoomGenerate : MonoBehaviour
         //ClassRoom.RV3 = NewRoom.transform.position;
 
         ClassRoom.RV3 = NewRoom;
-        ClassRoom.RoomAround = NextAroundBool;
+        //ClassRoom.RoomAround = NextAroundBool;
         GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
 
         //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();
@@ -178,7 +178,8 @@ public class HoleRoomGenerate : MonoBehaviour
                 NextAroundBool[3] = OpenB;
                 break;
         }
-
+        ClassRoom.RoomAround = NextAroundBool;
+        GameObject.Find("RoomScenes").GetComponent<RoomList>().RA();
     }
 
     void NextRoomIns(Vector3 NewPos, GameObject GrapGameObject)

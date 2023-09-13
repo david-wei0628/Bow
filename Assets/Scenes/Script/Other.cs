@@ -5,10 +5,19 @@ using UnityEditor;
 
 public class Other : MonoBehaviour
 {
-    public List<bool[]> Exit =new List<bool[]>(4);
-
-
+    public List<Point> a;
 
 }
 
+[System.Serializable]
+public class Point
+{
+    public List<Vector3> list;
+}
+
+[System.Serializable]
+public class PointList
+{
+    public List<Point> list;
+}
 

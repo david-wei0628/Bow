@@ -362,7 +362,6 @@ GameObject:
   - component: {fileID: 908084062}
   - component: {fileID: 908084063}
   - component: {fileID: 908084064}
-  - component: {fileID: 908084065}
   m_Layer: 0
   m_Name: RoomScenes
   m_TagString: Untagged
@@ -399,7 +398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartRoom: {fileID: 8462952771460344166}
-  StartAround: 00000000
   RoomPrefab: []
 --- !u!114 &908084064
 MonoBehaviour:
@@ -411,18 +409,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34d4cd874ce86f4184ac283ce5e2156, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &908084065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908084061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af98eac1da7933947a4536dfaa628f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1076499224

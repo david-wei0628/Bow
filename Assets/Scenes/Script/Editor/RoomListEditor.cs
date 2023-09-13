@@ -3,35 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-//[CustomEditor(typeof(RoomList))]
-[CustomEditor(typeof(Other))]
+[CustomEditor(typeof(RoomList))]
+//[CustomEditor(typeof(Other))]
 public class RoomListEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        Other other = (Other)target;
-        //RoomList RoomList = (RoomList)target;
+        //Other other = (Other)target;
+        RoomList RoomList = (RoomList)target;
 
-        GUILayout.BeginHorizontal();
-        //EditorGUILayout.LabelField("StartAround");
-        //for (int i = 0; i < RoomList.StartAround.Count; i++)
-        //{
-        //    EditorGUILayout.Toggle(RoomList.StartAround[i]);
-        //}
-        //EditorGUILayout.Toggle(other.Exit);
-        for (var i = 0; i < other.Exit.Count; i++)
+
+        EditorGUILayout.LabelField("StartAround");
+        //EditorGUILayout.LabelField(RoomList.StartAround.Count.ToString());
+        for (int i = 0; i < RoomList.StartAround.Count; i++)
         {
-            EditorGUILayout.Toggle(other.Exit[i][0]);
-            EditorGUILayout.Toggle(other.Exit[i][1]);
-            EditorGUILayout.Toggle(other.Exit[i][2]);
-            EditorGUILayout.Toggle(other.Exit[i][3]);
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField(RoomList.RoomPrefab[i].gameObject.name);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[0]);
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[1]);
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[2]);
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[3]);
+            GUILayout.EndHorizontal();
         }
 
-        GUILayout.EndHorizontal();
+        //EditorGUILayout.Toggle(other.Exit);
+        //for (var i = 0; i < other.Exit.Count; i++)
+        //{
+        //    EditorGUILayout.Toggle(other.Exit[i][0]);
+        //}
 
-        base.OnInspectorGUI();
+
+
+        //base.OnInspectorGUI();
     }
-      
+
 }
 
 

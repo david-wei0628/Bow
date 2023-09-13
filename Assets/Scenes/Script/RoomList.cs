@@ -11,24 +11,28 @@ public class RoomList : MonoBehaviour
 {
     //public List<Vector3> RoomPos;
     public GameObject StartRoom;
-    public List<bool> StartAround = new List<bool>(ClassRoom.RoomAround);
+    public List<AroundBool> StartAround = new List<AroundBool>();
     public List<GameObject> RoomPrefab;
     //public List<GameObject> ParentRoomPrefab;
-
     private void Awake()
     {
         //RoomPos.Add(Vector3.zero);
         RoomPrefab.Add(StartRoom);
-        //RoomPrefab.Add(StartRoom, StartAround);
         ClassRoom.RList = RoomPrefab;
     }
 
     public void RoomData()
     {
         RoomPrefab.Add(ClassRoom.RV3);
-        //RoomPrefab.Add(ClassRoom.RV3, ClassRoom.RoomAround);
         ClassRoom.RList = RoomPrefab;
         ClassRoom.RoomCount = RoomPrefab.Count;
+    }
+
+    public void RA()
+    {
+        AroundBool a = new AroundBool();
+        a.list = ClassRoom.RoomAround;
+        StartAround.Add(a);
     }
    
 }
@@ -39,4 +43,11 @@ public class ClassRoom
     public static List<GameObject> RList;
     public static int RoomCount;
     public static bool[] RoomAround = new bool[4];
+}
+
+[System.Serializable]
+public class AroundBool
+{
+    //public List<bool> list = new List<bool>(ClassRoom.RoomAround.Length);
+    public bool[] list = new bool[4];
 }
