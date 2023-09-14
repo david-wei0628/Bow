@@ -398,7 +398,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartRoom: {fileID: 8462952771460344166}
+  StartAround: []
   RoomPrefab: []
+  RoomBranch: []
 --- !u!114 &908084064
 MonoBehaviour:
   m_ObjectHideFlags: 0

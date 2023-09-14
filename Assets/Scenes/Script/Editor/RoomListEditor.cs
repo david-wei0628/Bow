@@ -12,20 +12,36 @@ public class RoomListEditor : Editor
         //Other other = (Other)target;
         RoomList RoomList = (RoomList)target;
 
-
-        EditorGUILayout.LabelField("StartAround");
-        //EditorGUILayout.LabelField(RoomList.StartAround.Count.ToString());
         for (int i = 0; i < RoomList.StartAround.Count; i++)
         {
             GUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(RoomList.RoomPrefab[i].gameObject.name);
+            EditorGUILayout.LabelField("Room Name:", GUILayout.MaxWidth(150.0f));
+            EditorGUILayout.Space();
+            //EditorGUILayout.LabelField(RoomList.RoomPrefab[i].gameObject.name, GUILayout.MaxWidth(100.0f));
+            EditorGUILayout.ObjectField(obj: RoomList.RoomPrefab[i], objType: typeof(GameObject), true);
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("RoomBranch Name:", GUILayout.MaxWidth(150.0f));
+            EditorGUILayout.Space();
+            //EditorGUILayout.LabelField(RoomList.RoomBranch[i].gameObject.name, GUILayout.MaxWidth(100.0f));
+            EditorGUILayout.ObjectField(obj: RoomList.RoomBranch[i], objType: typeof(GameObject), true);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            EditorGUILayout.Toggle(RoomList.StartAround[i].list[0]);
-            EditorGUILayout.Toggle(RoomList.StartAround[i].list[1]);
-            EditorGUILayout.Toggle(RoomList.StartAround[i].list[2]);
-            EditorGUILayout.Toggle(RoomList.StartAround[i].list[3]);
+            GUILayout.Label("Entrance/Exit");
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("F", GUILayout.MaxWidth(10.0f));
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[0], new[] { GUILayout.MaxWidth(20.0f) });
+            EditorGUILayout.LabelField("B", GUILayout.MaxWidth(10.0f));
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[1], GUILayout.MaxWidth(20.0f));
+            EditorGUILayout.LabelField("L", GUILayout.MaxWidth(10.0f));
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[2], GUILayout.MaxWidth(20.0f));
+            EditorGUILayout.LabelField("R", GUILayout.MaxWidth(10.0f));
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[3], GUILayout.MaxWidth(20.0f));
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("--------------------------------------------------------------------");
             GUILayout.EndHorizontal();
         }
 

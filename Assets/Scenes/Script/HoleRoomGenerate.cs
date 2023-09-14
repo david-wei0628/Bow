@@ -115,7 +115,7 @@ public class HoleRoomGenerate : MonoBehaviour
         //ClassRoom.RV3 = NewRoom.transform.position;
 
         ClassRoom.RV3 = NewRoom;
-        //ClassRoom.RoomAround = NextAroundBool;
+        ClassRoom.RBG = this.gameObject;
         GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
 
         //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();

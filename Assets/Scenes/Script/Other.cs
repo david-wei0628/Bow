@@ -5,19 +5,7 @@ using UnityEditor;
 
 public class Other : MonoBehaviour
 {
-    public List<Point> a;
+    public GameObject a;
 
-}
-
-[System.Serializable]
-public class Point
-{
-    public List<Vector3> list;
-}
-
-[System.Serializable]
-public class PointList
-{
-    public List<Point> list;
 }
 

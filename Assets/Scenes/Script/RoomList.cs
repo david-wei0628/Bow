@@ -13,18 +13,21 @@ public class RoomList : MonoBehaviour
     public GameObject StartRoom;
     public List<AroundBool> StartAround = new List<AroundBool>();
     public List<GameObject> RoomPrefab;
+    public List<GameObject> RoomBranch;
     //public List<GameObject> ParentRoomPrefab;
     private void Awake()
     {
         //RoomPos.Add(Vector3.zero);
         RoomPrefab.Add(StartRoom);
+        RoomBranch.Add(StartRoom);
         ClassRoom.RList = RoomPrefab;
     }
 
     public void RoomData()
     {
         RoomPrefab.Add(ClassRoom.RV3);
-        ClassRoom.RList = RoomPrefab;
+        RoomBranch.Add(ClassRoom.RBG);
+        ClassRoom.RList = RoomPrefab;   
         ClassRoom.RoomCount = RoomPrefab.Count;
     }
 
@@ -40,6 +43,7 @@ public class RoomList : MonoBehaviour
 public class ClassRoom
 {
     public static GameObject RV3;
+    public static GameObject RBG;
     public static List<GameObject> RList;
     public static int RoomCount;
     public static bool[] RoomAround = new bool[4];
