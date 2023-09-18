@@ -19,6 +19,7 @@ TagManager:
   - Four
   - Door
   - StartOne
+  - EvenBox
   layers:
   - Default
   - TransparentFX

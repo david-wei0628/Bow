@@ -70,7 +70,7 @@ public class HoleRoomGenerate : MonoBehaviour
         {
             NextRoomType = Random.Range(0, HoleRoomList.Count);
         }
-        else if (ClassRoom.RoomCount >= 30)
+        else if (ClassRoom.RoomCount >= 27)
         {
             NextRoomType = 0;
         }
@@ -126,11 +126,9 @@ public class HoleRoomGenerate : MonoBehaviour
     bool AroundRoom(Vector3 NextRoomPos)
     {
         //var NRP = this.transform.position + NextRoomPos;
-        //foreach (Vector3 NRP in ClassRoom.RList)
 
         foreach (GameObject NRP in ClassRoom.RList)
         {
-            //if (NRP == (this.transform.position + NextRoomPos))
             if (NRP.transform.position == (this.transform.position + NextRoomPos))
             {
                 return false;
@@ -295,6 +293,6 @@ public class HoleRoomGenerate : MonoBehaviour
             }
         }
         DWINS = false;
-        //Destroy(Plane.GetComponent<RoomWallInstan>());
     }
+
 }

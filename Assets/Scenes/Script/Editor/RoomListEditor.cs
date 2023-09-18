@@ -14,6 +14,8 @@ public class RoomListEditor : Editor
 
         for (int i = 0; i < RoomList.StartAround.Count; i++)
         {
+            EditorGUILayout.LabelField(i.ToString());
+            EditorGUILayout.LabelField(RoomList.RoomPrefab[i].tag);
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Room Name:", GUILayout.MaxWidth(150.0f));
             EditorGUILayout.Space();
@@ -31,7 +33,7 @@ public class RoomListEditor : Editor
             GUILayout.Label("Entrance/Exit");
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("F", GUILayout.MaxWidth(10.0f));
-            EditorGUILayout.Toggle(RoomList.StartAround[i].list[0], new[] { GUILayout.MaxWidth(20.0f) });
+            EditorGUILayout.Toggle(RoomList.StartAround[i].list[0], GUILayout.MaxWidth(20.0f));
             EditorGUILayout.LabelField("B", GUILayout.MaxWidth(10.0f));
             EditorGUILayout.Toggle(RoomList.StartAround[i].list[1], GUILayout.MaxWidth(20.0f));
             EditorGUILayout.LabelField("L", GUILayout.MaxWidth(10.0f));
@@ -44,14 +46,6 @@ public class RoomListEditor : Editor
             GUILayout.Label("--------------------------------------------------------------------");
             GUILayout.EndHorizontal();
         }
-
-        //EditorGUILayout.Toggle(other.Exit);
-        //for (var i = 0; i < other.Exit.Count; i++)
-        //{
-        //    EditorGUILayout.Toggle(other.Exit[i][0]);
-        //}
-
-
 
         //base.OnInspectorGUI();
     }

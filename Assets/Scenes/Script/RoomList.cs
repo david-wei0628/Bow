@@ -33,11 +33,11 @@ public class RoomList : MonoBehaviour
 
     public void RA()
     {
-        AroundBool a = new AroundBool();
-        a.list = ClassRoom.RoomAround;
-        StartAround.Add(a);
+        AroundBool Around = new AroundBool();
+        Around.list = ClassRoom.RoomAround;
+        StartAround.Add(Around);
     }
-   
+
 }
 
 public class ClassRoom

@@ -8,8 +8,20 @@ using UnityEngine;
 /// </summary>
 public class HoleRoomEven : MonoBehaviour
 {
+    public GameObject Box;
+    Vector3 RoomBoxPos = new Vector3(2.7f, 0, 2);
     private void OnTriggerEnter(Collider other)
     {
+        //if (!GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>())
+        if (ClassRoom.RList.Count < 30)
+        {
+            if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
+            {
+                this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+            }
+
+        }
+
         switch (gameObject.tag)
         {
             case "One":
@@ -25,31 +37,44 @@ public class HoleRoomEven : MonoBehaviour
                 FourRoomEven();
                 break;
             default://OR case "StartOne":
-                //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+
                 Destroy(this.gameObject.GetComponent<HoleRoomEven>());
                 break;
         }
-        //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        Destroy(other.gameObject);
         Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
 
     void OneRoomEven()
     {
-        Destroy(this.gameObject.GetComponent<HoleRoomEven>());
+        GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
+        //Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
     void TwoRoomEven()
     {
-        //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        Destroy(this.gameObject.GetComponent<HoleRoomEven>());
+        GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
+        //if (ClassRoom.RList.Count > 30)
+        //{
+        //    this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        //}
+        //Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
     void ThreeRoomEven()
     {
-        //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        Destroy(this.gameObject.GetComponent<HoleRoomEven>());
+        GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
+        //if (ClassRoom.RList.Count > 30)
+        //{
+        //    this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        //}
+        //Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
     void FourRoomEven()
     {
-        //this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        Destroy(this.gameObject.GetComponent<HoleRoomEven>());
+        GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
+        //if (ClassRoom.RList.Count > 30)
+        //{
+        //    this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        //}
+        //Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
 }
