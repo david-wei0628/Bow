@@ -351,6 +351,7 @@ MonoBehaviour:
   StartAround: []
   RoomPrefab: []
   RoomBranch: []
+  RoomLevel: 
 --- !u!114 &908084064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34d4cd874ce86f4184ac283ce5e2156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextLevel: 1
 --- !u!4 &5262662998775590399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4358022817553400986, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}

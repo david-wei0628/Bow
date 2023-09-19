@@ -26,15 +26,13 @@ public class HoleRoomGenerate : MonoBehaviour
     Vector3 R = Vector3.right * 10;
 
     void Start() => ExporTo();
-    //{
-    //    //OnAroundBool = AroundBool;
-    //    ExporTo();
-    //}
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            HoleRoomBuilder();
+        }
     }
 
     private void FixedUpdate()
@@ -81,7 +79,8 @@ public class HoleRoomGenerate : MonoBehaviour
 
         GameObject NewRoom;
         NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
-        //NewRoom = Instantiate(HoleRoomList[1], NewPos, Quaternion.identity, GrapGameObject.transform);
+
+        //NewRoom = Instantiate(HoleRoomList[2], NewPos, Quaternion.identity, GrapGameObject.transform);
         //NewRoom.name = "HoleRoom";
         if (ClassRoom.RoomCount == 0)
         {
@@ -294,5 +293,5 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         DWINS = false;
     }
-
+    
 }

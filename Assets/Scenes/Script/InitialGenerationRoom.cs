@@ -6,31 +6,39 @@ public class InitialGenerationRoom : MonoBehaviour
 {
     int RestRoom = 0;
     List<GameObject> RoomPos;
-    bool NextLevel = true;
+    [HideInInspector]
+    public bool NextLevel = false;
 
     // Update is called once per frame
     void Update()
     {
         RoomPos = this.gameObject.GetComponent<RoomList>().RoomPrefab;
-        if (RoomPos.Count <= 30 && RoomPos[RestRoom].transform.GetChild(0).transform.position.y == 0 && NextLevel)
+        if (RoomPos.Count <= 30 && RoomPos[RoomPos.Count-1].transform.GetChild(0).transform.position.y == 0)
         {
             RestRoomIns();
+            //RoomLevel();
         }
 
-        if (RoomPos.Count > 30 || !NextLevel)
+        if (RoomPos.Count > 30 )
         {
             LastRound();
+            gameObject.GetComponent<RoomList>().Level();
             Destroy(this.gameObject.GetComponent<InitialGenerationRoom>());
         }
+
+        //if (NextLevel)
+        //{
+        //    Destroy(this.gameObject.GetComponent<InitialGenerationRoom>());
+        //}
     }
 
     void RestRoomIns()
     {
         RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
         RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        //Destroy(RoomPos[RestRoom].gameObject.GetComponent<HoleRoomEven>());
+
         RestRoom++;
-        RoomLevel();
+        //RoomLevel();
     }
 
     void LastRound()
@@ -44,7 +52,7 @@ public class InitialGenerationRoom : MonoBehaviour
             {
                 RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
                 RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-            }   
+            }
         }
     }
 
@@ -53,19 +61,10 @@ public class InitialGenerationRoom : MonoBehaviour
         var RoomBranch = gameObject.GetComponent<RoomList>().RoomBranch;
         var RoomPrefab = gameObject.GetComponent<RoomList>().RoomPrefab;
         var LastRoom = RoomBranch[RoomBranch.Count - 1].name;
-        List<bool> vs = new List<bool>();
-        int vs2 = 0;
-        for (int i = RoomPrefab.Count - 1; RoomPrefab[i].name != LastRoom; i--)
-        {
-            vs2++;
-            if (RoomPrefab[i].tag == "One")
-            {
-                vs.Add(true);
-            }
-        }
-        if (vs.Count == vs2)
-        {
-            NextLevel = false;
-        }
+        //for (int i = RoomPrefab.Count - 1; RoomPrefab[i].name != LastRoom; i--)
+        //{
+
+        //}
+        
     }
 }

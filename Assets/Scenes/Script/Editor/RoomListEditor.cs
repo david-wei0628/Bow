@@ -14,8 +14,12 @@ public class RoomListEditor : Editor
 
         for (int i = 0; i < RoomList.StartAround.Count; i++)
         {
-            EditorGUILayout.LabelField(i.ToString());
-            EditorGUILayout.LabelField(RoomList.RoomPrefab[i].tag);
+            GUILayout.BeginHorizontal(/*GUILayout.MaxWidth(20.0f)*/);
+            EditorGUILayout.LabelField(i.ToString(),GUILayout.MaxWidth(20.0f));
+            EditorGUILayout.LabelField("Level", GUILayout.MaxWidth(60.0f));
+            //EditorGUILayout.LabelField(RoomList.RoomPrefab[i].tag);
+            EditorGUILayout.LabelField(RoomList.RoomLevel[i].ToString(), GUILayout.MaxWidth(20.0f));
+            GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Room Name:", GUILayout.MaxWidth(150.0f));
             EditorGUILayout.Space();
