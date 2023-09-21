@@ -16,23 +16,23 @@ public class HoleRoomGenerate : MonoBehaviour
 
     private GameObject Plane;
     private bool DWINS = true;
-    //Vector3 F = new Vector3(0, 0, 10);
+    //Vector3 F = new Vector3(0, 10, 10);
     Vector3 F = Vector3.forward * 10;
-    //Vector3 D = new Vector3(0, 0, -10);
+    //Vector3 B = new Vector3(0, 10, -10);
     Vector3 B = Vector3.back * 10;
-    //Vector3 L = new Vector3(-10, 0, 0);
+    //Vector3 L = new Vector3(-10, 10, 0);
     Vector3 L = Vector3.left * 10;
-    //Vector3 R = new Vector3(10, 0, 0);
+    //Vector3 R = new Vector3(10, 10, 0);
     Vector3 R = Vector3.right * 10;
 
     void Start() => ExporTo();
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            HoleRoomBuilder();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    HoleRoomBuilder();
+        //}
     }
 
     private void FixedUpdate()
@@ -50,7 +50,6 @@ public class HoleRoomGenerate : MonoBehaviour
     {
         Vector3 NewPos = this.transform.position;
         GameObject GrapGameObject = gameObject.transform.parent.gameObject;
-        //DoorWall();
 
         //ClassRoom.RV3 = this.gameObject;
         //GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
@@ -80,7 +79,7 @@ public class HoleRoomGenerate : MonoBehaviour
         GameObject NewRoom;
         NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
 
-        //NewRoom = Instantiate(HoleRoomList[2], NewPos, Quaternion.identity, GrapGameObject.transform);
+        //NewRoom = Instantiate(HoleRoomList[0], NewPos, Quaternion.identity, GrapGameObject.transform);
         //NewRoom.name = "HoleRoom";
         if (ClassRoom.RoomCount == 0)
         {
@@ -115,7 +114,9 @@ public class HoleRoomGenerate : MonoBehaviour
 
         ClassRoom.RV3 = NewRoom;
         ClassRoom.RBG = this.gameObject;
-        GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
+        ClassRoom.RoomBool = NextLevelBool();
+
+        GameObject.Find("RoomScenes").GetComponent<HoleRoomList>().RoomData();
 
         //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();
 
@@ -176,7 +177,8 @@ public class HoleRoomGenerate : MonoBehaviour
                 break;
         }
         ClassRoom.RoomAround = NextAroundBool;
-        GameObject.Find("RoomScenes").GetComponent<RoomList>().RA();
+        ClassRoom.RoomBool = NextLevelBool();
+        GameObject.Find("RoomScenes").GetComponent<HoleRoomList>().RA(gameObject);
     }
 
     void NextRoomIns(Vector3 NewPos, GameObject GrapGameObject)
@@ -293,5 +295,18 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         DWINS = false;
     }
-    
+
+    public bool NextLevelBool()
+    {
+        bool R4 = false;
+        bool Fornt = NextAroundBool[0] & AroundRoom(F);
+        bool Back = NextAroundBool[1] & AroundRoom(B);
+        bool Left = NextAroundBool[2] & AroundRoom(L);
+        bool Right = NextAroundBool[3] & AroundRoom(R);
+
+        R4 = Fornt | Back | Left | Right;
+
+        return R4;
+    }
+
 }

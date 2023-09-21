@@ -11,12 +11,6 @@ public class PlayMove : MonoBehaviour
     float xRotation = 0f;
     public float MoveSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

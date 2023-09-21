@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoleRoomLevel : RoomList
+public class HoleRoomLevel : HoleRoomList
 {
     
 }

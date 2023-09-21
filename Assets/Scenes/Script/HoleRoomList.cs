@@ -7,14 +7,16 @@ using UnityEditor;
 /// passive script 
 /// Only Save Room Date
 /// </summary>
-public class RoomList : MonoBehaviour
+public class HoleRoomList : MonoBehaviour
 {
     //public List<Vector3> RoomPos;
     public GameObject StartRoom;
     public List<AroundBool> StartAround = new List<AroundBool>();
     public List<GameObject> RoomPrefab;
     public List<GameObject> RoomBranch;
+    public Dictionary<int, LevelBool> NextRoomIns = new Dictionary<int, LevelBool>();
     public List<int> RoomLevel;
+    public int LastLevel = 0;
     //public List<GameObject> ParentRoomPrefab;
     private void Awake()
     {
@@ -22,6 +24,13 @@ public class RoomList : MonoBehaviour
         RoomPrefab.Add(StartRoom);
         RoomBranch.Add(StartRoom);
         RoomLevel.Add(0);
+
+        //LevelBool FlashRom = new LevelBool();
+        //FlashRom.level = 0;
+        //FlashRom.Bool = true;  
+
+        //NextRoomIns.Add(0, FlashRom);
+
         ClassRoom.RList = RoomPrefab;
     }
 
@@ -29,37 +38,39 @@ public class RoomList : MonoBehaviour
     {
         RoomPrefab.Add(ClassRoom.RV3);
         RoomBranch.Add(ClassRoom.RBG);
+        //NextRoomIns.Add();
         RoomLevel.Add(0);
+        Level();
         ClassRoom.RList = RoomPrefab;
         ClassRoom.RoomCount = RoomPrefab.Count;
     }
 
-    public void RA()
+    public void RA(GameObject RV3)
     {
         AroundBool Around = new AroundBool();
         Around.list = ClassRoom.RoomAround;
         StartAround.Add(Around);
+
+        var i = RoomPrefab.FindIndex(x => x == RV3);
+        var index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
+
+        LevelBool FlashRom = new LevelBool();
+        FlashRom.level = RoomLevel[i];
+        FlashRom.Bool = ClassRoom.RoomBool;
+        NextRoomIns.Add(i, FlashRom);
     }
 
     public void Level()
     {
-        int index;
-        //for (int i = RoomPrefab.Count - 1; i > 0; i = index)
-        //{
-        //    index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
-        //    RoomLevel[index]++;
-        //}
+        var i = RoomPrefab.FindIndex(x => x == ClassRoom.RV3);
+        var index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
+        RoomLevel[i] = RoomLevel[index] + 1;
 
-        for (int i = 1; i < RoomPrefab.Count; i++)
+        if (LastLevel < RoomLevel[RoomLevel.Count - 1])
         {
-            index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
-            print(index);
-            RoomLevel[i] = RoomLevel[index] + 1;
+            LastLevel = RoomLevel[RoomLevel.Count - 1];
         }
-    }
-
-
-
+    }    
 }
 
 public class ClassRoom
@@ -69,6 +80,7 @@ public class ClassRoom
     public static List<GameObject> RList;
     public static int RoomCount;
     public static bool[] RoomAround = new bool[4];
+    public static bool RoomBool;
 }
 
 [System.Serializable]
@@ -76,4 +88,12 @@ public class AroundBool
 {
     //public List<bool> list = new List<bool>(ClassRoom.RoomAround.Length);
     public bool[] list = new bool[4];
+}
+
+[System.Serializable]
+public class LevelBool
+{
+    //public List<bool> list = new List<bool>(ClassRoom.RoomAround.Length);
+    public int level;
+    public bool Bool;
 }

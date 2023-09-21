@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(RoomList))]
+[CustomEditor(typeof(HoleRoomList))]
 //[CustomEditor(typeof(Other))]
-public class RoomListEditor : Editor
+public class HoleRoomListEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         //Other other = (Other)target;
-        RoomList RoomList = (RoomList)target;
-
+        HoleRoomList RoomList = (HoleRoomList)target;
         for (int i = 0; i < RoomList.StartAround.Count; i++)
         {
             GUILayout.BeginHorizontal(/*GUILayout.MaxWidth(20.0f)*/);
             EditorGUILayout.LabelField(i.ToString(),GUILayout.MaxWidth(20.0f));
             EditorGUILayout.LabelField("Level", GUILayout.MaxWidth(60.0f));
-            //EditorGUILayout.LabelField(RoomList.RoomPrefab[i].tag);
             EditorGUILayout.LabelField(RoomList.RoomLevel[i].ToString(), GUILayout.MaxWidth(20.0f));
+            EditorGUILayout.LabelField(RoomList.NextRoomIns[i].level.ToString(), GUILayout.MaxWidth(100.0f));
+            EditorGUILayout.LabelField(RoomList.NextRoomIns[i].Bool.ToString(), GUILayout.MaxWidth(100.0f));
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Room Name:", GUILayout.MaxWidth(150.0f));

@@ -311,6 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 908084062}
   - component: {fileID: 908084063}
+  - component: {fileID: 908084065}
   - component: {fileID: 908084064}
   m_Layer: 0
   m_Name: RoomScenes
@@ -352,6 +353,7 @@ MonoBehaviour:
   RoomPrefab: []
   RoomBranch: []
   RoomLevel: 
+  LastLevel: 0
 --- !u!114 &908084064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +366,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34d4cd874ce86f4184ac283ce5e2156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: 1
+--- !u!114 &908084065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908084061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409e3e05232809142a39d755bb2aa549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5262662998775590399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4358022817553400986, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
