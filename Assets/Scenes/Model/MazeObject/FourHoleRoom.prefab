@@ -237,6 +237,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5809458424453348936}
     m_Modifications:
+    - target: {fileID: 591339694587471453, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475826370601235931, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1849028732846904006, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -333,10 +341,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 3ddfbad41fd09c043a7fe054c16854f2, type: 2}
+    - target: {fileID: 4221049818444509831, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4885770436681570876, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4980309748432117018, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757093936602463391, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637431335277269536, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7045203310130990784, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
       propertyPath: m_CastShadows
       value: 1
@@ -353,6 +377,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 3ddfbad41fd09c043a7fe054c16854f2, type: 2}
+    - target: {fileID: 8489437030804564777, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056495874181743296, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ae7bdade7c81a429cab0c46132dc0d, type: 3}
 --- !u!4 &6195875870329216658 stripped
@@ -367,6 +399,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1220731243964481517}
     m_Modifications:
+    - target: {fileID: 33333907043738769, guid: 3e94df538c583c546837f3bedc6d4c87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919535890817098869, guid: 3e94df538c583c546837f3bedc6d4c87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794780435935007130, guid: 3e94df538c583c546837f3bedc6d4c87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139895270558357023, guid: 3e94df538c583c546837f3bedc6d4c87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9047848734609323880, guid: 3e94df538c583c546837f3bedc6d4c87, type: 3}
       propertyPath: m_Name
       value: Demo_tile_crossroads_4

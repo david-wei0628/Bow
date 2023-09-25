@@ -17,5 +17,6 @@ public class HoleRoomOpenAnimat : MonoBehaviour
         {
             HoleRoomAnimal.SetTrigger("RoadDown");
         }
+        //Destroy(this.gameObject.GetComponent<HoleRoomOpenAnimat>());
     }
 }

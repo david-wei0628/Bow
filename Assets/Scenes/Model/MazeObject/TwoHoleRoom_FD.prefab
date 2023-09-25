@@ -237,6 +237,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7118040345610731151}
     m_Modifications:
+    - target: {fileID: 525566639029121043, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1226001563944290886, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
       propertyPath: m_Name
       value: Demo_tile_straight
@@ -284,6 +288,26 @@ PrefabInstance:
     - target: {fileID: 1226001563944290905, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683722312129584182, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935068730862531033, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494214489323174483, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617071941495963031, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049311248149614521, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c29cfd414f1f024998e971c2ed1ac87, type: 3}

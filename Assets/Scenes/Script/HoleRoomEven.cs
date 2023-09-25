@@ -14,13 +14,12 @@ public class HoleRoomEven : MonoBehaviour
     {
         var InsBool = GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>();
         //if (!GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>())
-        if (ClassRoom.RList.Count < 30 && !InsBool)
+        if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled))
         {
             if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
             {
                 this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
             }
-
         }
 
         switch (gameObject.tag)
@@ -42,7 +41,10 @@ public class HoleRoomEven : MonoBehaviour
                 Destroy(this.gameObject.GetComponent<HoleRoomEven>());
                 break;
         }
-        Destroy(other.gameObject);
+        if (other.tag != "Player")
+        {
+            Destroy(other.gameObject);
+        }
         Destroy(this.gameObject.GetComponent<HoleRoomEven>());
     }
 
@@ -54,16 +56,16 @@ public class HoleRoomEven : MonoBehaviour
     void TwoRoomEven()
     {
         GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
-        
+
     }
     void ThreeRoomEven()
     {
         GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
-       
+
     }
     void FourRoomEven()
     {
         GameObject BoxIns = Instantiate(Box, RoomBoxPos + this.transform.position, Quaternion.identity, this.gameObject.transform);
-        
+
     }
 }
