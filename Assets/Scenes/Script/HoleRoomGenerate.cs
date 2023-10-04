@@ -93,19 +93,19 @@ public class HoleRoomGenerate : MonoBehaviour
         switch (Entrance)
         {
             case "F":
-                //NewRoom.transform.localEulerAngles = new Vector3(0, 0, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 0, 0);
                 NewRoom.transform.localEulerAngles = new Vector3(0, 0, 0);
                 break;
             case "B":
-                //NewRoom.transform.localEulerAngles = new Vector3(0, 180, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 180, 0);
                 NewRoom.transform.localEulerAngles = new Vector3(0, 180, 0);
                 break;
             case "L":
-                //NewRoom.transform.localEulerAngles = new Vector3(0, 270, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 270, 0);
                 NewRoom.transform.localEulerAngles = new Vector3(0, 270, 0);
                 break;
             case "R":
-                //NewRoom.transform.localEulerAngles = new Vector3(0, 90, 0);
+                NewRoom.transform.localEulerAngles = new Vector3(0, 90, 0);
                 NewRoom.transform.localEulerAngles = new Vector3(0, 90, 0);
                 break;
         }
@@ -142,7 +142,7 @@ public class HoleRoomGenerate : MonoBehaviour
 
     }
 
-    void ExporTo(/*GameObject NewRoomExit, string Entrance*/)
+    void ExporTo()
     {
         var OpenF = AroundBool[0];
         var OpenB = AroundBool[1];
@@ -294,6 +294,10 @@ public class HoleRoomGenerate : MonoBehaviour
             }
         }
         DWINS = false;
+        if (this.gameObject.tag == "One")
+        {
+            Destroy(this.gameObject.GetComponent<HoleRoomGenerate>());
+        }
     }
 
     public bool NextLevelBool()

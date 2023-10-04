@@ -12,11 +12,25 @@ public class HoleRoomOpenAnimat : MonoBehaviour
         if (/*Input.GetKeyDown(KeyCode.Space) &&*/ this.tag == "Room")
         {
             HoleRoomAnimal.SetTrigger("Create");
+            
         }
         if (/*Input.GetKeyDown(KeyCode.A) &&*/ this.tag == "Road")
         {
             HoleRoomAnimal.SetTrigger("RoadDown");
         }
         //Destroy(this.gameObject.GetComponent<HoleRoomOpenAnimat>());
+        
+
     }
+
+    private void Update()
+    {
+        if (HoleRoomAnimal.GetCurrentAnimatorStateInfo(0).IsName("Exit"))
+        {
+            print("RoadAnimat");
+        }
+        
+    }
+
+    
 }

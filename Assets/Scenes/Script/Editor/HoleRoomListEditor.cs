@@ -17,19 +17,20 @@ public class HoleRoomListEditor : Editor
             EditorGUILayout.LabelField(i.ToString(),GUILayout.MaxWidth(20.0f));
             EditorGUILayout.LabelField("Level", GUILayout.MaxWidth(60.0f));
             EditorGUILayout.LabelField(RoomList.RoomLevel[i].ToString(), GUILayout.MaxWidth(20.0f));
-            EditorGUILayout.LabelField(RoomList.NextRoomIns[i].level.ToString(), GUILayout.MaxWidth(100.0f));
-            EditorGUILayout.LabelField(RoomList.NextRoomIns[i].Bool.ToString(), GUILayout.MaxWidth(100.0f));
+            //EditorGUILayout.LabelField(RoomList.NextRoomIns[i].level.ToString(), GUILayout.MaxWidth(100.0f));
+            //EditorGUILayout.LabelField(RoomList.NextRoomIns[i].Bool.ToString(), GUILayout.MaxWidth(100.0f));
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Room Name:", GUILayout.MaxWidth(150.0f));
             EditorGUILayout.Space();
             //EditorGUILayout.LabelField(RoomList.RoomPrefab[i].gameObject.name, GUILayout.MaxWidth(100.0f));
             EditorGUILayout.ObjectField(obj: RoomList.RoomPrefab[i], objType: typeof(GameObject), true);
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("RoomBranch Name:", GUILayout.MaxWidth(150.0f));
             EditorGUILayout.Space();
-            //EditorGUILayout.LabelField(RoomList.RoomBranch[i].gameObject.name, GUILayout.MaxWidth(100.0f));
             EditorGUILayout.ObjectField(obj: RoomList.RoomBranch[i], objType: typeof(GameObject), true);
             GUILayout.EndHorizontal();
 

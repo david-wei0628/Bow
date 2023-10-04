@@ -5,7 +5,7 @@ using UnityEditor;
 
 /// <summary>
 /// passive script 
-/// Only Save Room Date
+/// Only Log Room Date(Room's Number,Level Tabel,Branch Room,Room's GameObject)
 /// </summary>
 public class HoleRoomList : MonoBehaviour
 {

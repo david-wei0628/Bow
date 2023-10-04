@@ -10,10 +10,11 @@ public class HoleRoomEven : MonoBehaviour
 {
     public GameObject Box;
     Vector3 RoomBoxPos = new Vector3(2.7f, 0, 2);
+
     private void OnTriggerEnter(Collider other)
     {
         var InsBool = GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>();
-        //if (!GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>())
+
         if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled))
         {
             if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
