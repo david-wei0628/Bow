@@ -17,6 +17,8 @@ public class HoleRoomList : MonoBehaviour
     public Dictionary<int, LevelBool> NextRoomIns = new Dictionary<int, LevelBool>();
     public List<int> RoomLevel;
     public int LastLevel = 0;
+    public bool RoomEven = true;
+
     //public List<GameObject> ParentRoomPrefab;
     private void Awake()
     {

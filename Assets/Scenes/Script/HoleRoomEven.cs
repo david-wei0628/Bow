@@ -13,9 +13,10 @@ public class HoleRoomEven : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var InsBool = GameObject.Find("RoomScenes").GetComponent<InitialGenerationRoom>();
+        var InsBool = this.gameObject.transform.parent.gameObject.GetComponent<InitialGenerationRoom>();
+        var EvenBool = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomEven;
 
-        if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled))
+        if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled) && EvenBool)
         {
             if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
             {

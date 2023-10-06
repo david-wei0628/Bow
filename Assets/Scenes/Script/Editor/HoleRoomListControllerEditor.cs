@@ -6,10 +6,10 @@ using UnityEditor;
 [CustomEditor(typeof(HoleRoomListController))]
 public class HoleRoomListControllerEditor : Editor
 {
-    //public override void OnInspectorGUI()
-    //{
-    //    HoleRoomListController HoleRoomListController = (HoleRoomListController)target;
+    public override void OnInspectorGUI()
+    {
+        HoleRoomListController HoleRoomListController = (HoleRoomListController)target;
 
-    //    base.OnInspectorGUI();
-    //}
+        //base.OnInspectorGUI();
+    }
 }

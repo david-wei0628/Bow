@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIControllers : MonoBehaviour
 {
-    public GameObject mesh;
+    //public GameObject mesh;
     // Start is called before the first frame update
     void Start()
     {

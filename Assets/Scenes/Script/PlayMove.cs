@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayMove : MonoBehaviour
 {
@@ -11,13 +12,17 @@ public class PlayMove : MonoBehaviour
     float xRotation = 0f;
     public float MoveSpeed;
 
+    [HideInInspector]
+    public bool UIBool = true;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && UIBool)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -43,7 +48,6 @@ public class PlayMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //GameObject.Find("Uc").transform.position = PlayerCam.transform.position;
             Instantiate(PlayerModel, this.transform);
         }
 
@@ -69,4 +73,6 @@ public class PlayMove : MonoBehaviour
             PlayerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
     }
+
+    
 }

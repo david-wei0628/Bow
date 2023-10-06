@@ -5,27 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class HoleRoomListController : MonoBehaviour
 {
+    public List<GameObject> RoomList;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.O))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ObjectTest();
-        }
     }
 
-    void ObjectTest()
+    void RoomData()
     {
-        var roomList = this.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
-        for (int i = 0; i < roomList.Count; i++)
-        {
-            print(roomList[i].GetInstanceID() + " " + roomList[i].tag);
-
-        }
+        RoomList = gameObject.GetComponent<HoleRoomList>().RoomPrefab;
     }
 
 }

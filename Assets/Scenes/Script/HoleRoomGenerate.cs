@@ -27,14 +27,6 @@ public class HoleRoomGenerate : MonoBehaviour
 
     void Start() => ExporTo();
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    HoleRoomBuilder();
-        //}
-    }
-
     private void FixedUpdate()
     {
         if (Plane.transform.position.y == 0 && DWINS)
@@ -116,7 +108,7 @@ public class HoleRoomGenerate : MonoBehaviour
         ClassRoom.RBG = this.gameObject;
         ClassRoom.RoomBool = NextLevelBool();
 
-        GameObject.Find("RoomScenes").GetComponent<HoleRoomList>().RoomData();
+        this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomData();
 
         //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();
 
@@ -178,7 +170,8 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         ClassRoom.RoomAround = NextAroundBool;
         ClassRoom.RoomBool = NextLevelBool();
-        GameObject.Find("RoomScenes").GetComponent<HoleRoomList>().RA(gameObject);
+
+        this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RA(gameObject);
     }
 
     void NextRoomIns(Vector3 NewPos, GameObject GrapGameObject)

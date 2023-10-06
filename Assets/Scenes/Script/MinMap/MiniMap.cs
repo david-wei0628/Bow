@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinMap : MonoBehaviour
+public class MiniMap : MonoBehaviour
 {
     public Transform LookObject;
     public Transform LightPos;

@@ -6,8 +6,14 @@ public class InitialGenerationRoom : MonoBehaviour
 {
     int RestRoom = 0;
     List<GameObject> RoomPos;
+
     // Update is called once per frame
     void Update()
+    {
+        InitRoomUpdata();
+    }
+
+    void InitRoomUpdata()
     {
         RoomPos = this.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
 
@@ -20,15 +26,24 @@ public class InitialGenerationRoom : MonoBehaviour
         if (RoomPos.Count > 30 || RestRoom >= RoomPos.Count)
         {
             LastRound();
+            LastLevelRoom();
             Destroy(this.gameObject.GetComponent<InitialGenerationRoom>());
         }
     }
 
     void RestRoomIns()
     {
-        RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
-        RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-        RestRoom++;
+        try
+        {
+            RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
+            RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+            RestRoom++;
+        }
+        catch
+        {
+            LastLevelRoom();
+            Destroy(this.gameObject.GetComponent<InitialGenerationRoom>());
+        }
     }
 
     void LastRound()
@@ -42,10 +57,24 @@ public class InitialGenerationRoom : MonoBehaviour
         {
             if (RoomPrefab[i].tag != "One")
             {
-                //RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
-                RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+                try
+                {
+                    //RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
+                    RoomPrefab[i].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+                }
+                catch
+                {
+
+                }
             }
         }
+
+        
+    }
+
+    void LastLevelRoom()
+    {
+        var RoomPrefab = gameObject.GetComponent<HoleRoomList>().RoomPrefab;
 
         GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         Quaternion PlaneRot = Quaternion.identity;
@@ -54,6 +83,8 @@ public class InitialGenerationRoom : MonoBehaviour
 
         var LastLevel = gameObject.GetComponent<HoleRoomList>().LastLevel;
         var LevelList = gameObject.GetComponent<HoleRoomList>().RoomLevel;
+
+        gameObject.GetComponent<HoleRoomList>().RoomEven = false;
 
         for (int i = LevelList.Count - 1; LevelList[i] >= LastLevel - 1; i--)
         {
