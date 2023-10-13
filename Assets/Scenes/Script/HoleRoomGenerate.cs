@@ -25,15 +25,15 @@ public class HoleRoomGenerate : MonoBehaviour
     //Vector3 R = new Vector3(10, 10, 0);
     Vector3 R = Vector3.right * 10;
 
-    void Start() => ExporTo();
+    //void Start() => ExporTo();
 
-    private void FixedUpdate()
-    {
-        if (Plane.transform.position.y == 0 && DWINS)
-        {
-            DoorWall();
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (Plane.transform.position.y == 0 && DWINS)
+    //    {
+    //        DoorWall();
+    //    }
+    //}
 
     /// <summary>
     /// ¶¡¶Z10
@@ -55,7 +55,7 @@ public class HoleRoomGenerate : MonoBehaviour
     void RangeRoom(Vector3 NewPos, string Entrance, GameObject GrapGameObject)
     {
         int NextRoomType;
-        if (ClassRoom.RoomCount > 10 && ClassRoom.RoomCount == 1)
+        if (ClassRoom.RoomCount > 10 /*&& ClassRoom.RoomCount == 1*/)
         {
             NextRoomType = Random.Range(0, HoleRoomList.Count);
         }
@@ -73,7 +73,7 @@ public class HoleRoomGenerate : MonoBehaviour
 
         //NewRoom = Instantiate(HoleRoomList[0], NewPos, Quaternion.identity, GrapGameObject.transform);
         //NewRoom.name = "HoleRoom";
-        if (ClassRoom.RoomCount == 0)
+        if (ClassRoom.RoomCount == 1)
         {
             NewRoom.name = "Room 1";
         }
@@ -106,7 +106,9 @@ public class HoleRoomGenerate : MonoBehaviour
 
         ClassRoom.RV3 = NewRoom;
         ClassRoom.RBG = this.gameObject;
+        ClassRoom.RoomID = ClassRoom.RoomCount;
         ClassRoom.RoomBool = NextLevelBool();
+        ClassRoom.RoomPrefabID = NextRoomType;
 
         this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomData();
 

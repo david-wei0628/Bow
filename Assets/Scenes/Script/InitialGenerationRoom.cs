@@ -18,12 +18,12 @@ public class InitialGenerationRoom : MonoBehaviour
         RoomPos = this.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
 
         //if (/*RoomPos.Count <= 30 && */RoomPos[RoomPos.Count-1].transform.GetChild(0).transform.position.y == 0)
-        if (RoomPos[RoomPos.Count - 1].transform.GetChild(0).transform.position.y == 0 && RestRoom < RoomPos.Count)
+        if (RoomPos[RoomPos.Count - 1].transform.GetChild(0).transform.position.y == 0 && RestRoom <= RoomPos.Count)
         {
             RestRoomIns();
         }
 
-        if (RoomPos.Count > 30 || RestRoom >= RoomPos.Count)
+        if (RoomPos.Count > 30 || RestRoom > RoomPos.Count)
         {
             LastRound();
             LastLevelRoom();
@@ -78,6 +78,7 @@ public class InitialGenerationRoom : MonoBehaviour
 
         GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         Quaternion PlaneRot = Quaternion.identity;
+        plane.name = "X";
         PlaneRot.eulerAngles = new Vector3(180, 0, 0);
         plane.layer = 6;
 
@@ -93,14 +94,7 @@ public class InitialGenerationRoom : MonoBehaviour
                 Instantiate(plane, RoomPrefab[i].transform.position + Vector3.down, PlaneRot, GameObject.Find("MiniMapGraup").transform);
             }
         }
-    }
-
-    void levelBool()
-    {
-        var LVBool = gameObject.GetComponent<HoleRoomList>().NextRoomIns;
-        var RoomBranch = gameObject.GetComponent<HoleRoomList>().RoomBranch;
-        var RoomPrefab = gameObject.GetComponent<HoleRoomList>().RoomPrefab;
-        var Level = gameObject.GetComponent<HoleRoomList>().RoomLevel;
+        Destroy(plane);
     }
 
 }

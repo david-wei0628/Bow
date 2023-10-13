@@ -3,7 +3,12 @@ guid: c1548bb76a53ae7439e107d5562c14ac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - UIMenu: {fileID: 5774253470370553430, guid: 830b6da9aff3c7c4a9c418fc0eb03bd3, type: 3}
+  - PlayerCS: {instanceID: 0}
+  - Type1: {fileID: 7065663065087204754, guid: 53e9bf840cf2b6b499f77ff7418554f9, type: 3}
+  - Type2: {fileID: 16486534640308137, guid: 6226367e8efa8354fa23d54c08f31ed7, type: 3}
+  - DoorORWall: {fileID: 8025867694117804839, guid: a1c585287c94b1c449c56b5fcc09a55a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

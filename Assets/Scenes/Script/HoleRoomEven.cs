@@ -13,16 +13,20 @@ public class HoleRoomEven : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var InsBool = this.gameObject.transform.parent.gameObject.GetComponent<InitialGenerationRoom>();
-        var EvenBool = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomEven;
+        //var InsBool = this.gameObject.transform.parent.gameObject.GetComponent<InitialGenerationRoom>();
+        //var EvenBool = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomEven;
 
-        if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled) && EvenBool)
-        {
-            if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
-            {
-                this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
-            }
-        }
+        //if (ClassRoom.RList.Count < 30 && (InsBool == null || !InsBool.enabled) && EvenBool)
+        //{
+        //    if (ClassRoom.RList.Exists(R => R.transform.position == this.transform.position))
+        //    {
+        //        try
+        //        {
+        //            this.gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder();
+        //        }
+        //        catch { }
+        //    }
+        //}
 
         switch (gameObject.tag)
         {

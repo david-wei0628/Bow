@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoleRoomList:
+  - {fileID: 5685312188324054340, guid: 338c88719baf9c74c84ffa5e66f9db0c, type: 3}
   - {fileID: 5322512534842979361, guid: 83ac3ea4b3d970f488552aff993e1052, type: 3}
   - {fileID: 5322512534842979361, guid: 2e8fd4cf6eb66ee4cb7177ef128e2834, type: 3}
   - {fileID: 5322512534842979361, guid: 67422b72d31e0a946bc9e53fa1130be3, type: 3}

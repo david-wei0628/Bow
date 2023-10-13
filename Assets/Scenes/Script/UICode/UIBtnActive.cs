@@ -11,10 +11,17 @@ public class UIBtnActive : MonoBehaviour
 
     void Awake()
     {
-        //if (true)
-        //{
-        //    ReadBtn.enabled = false;
-        //}
+        var savePath = Application.persistentDataPath;
+
+        try
+        {
+            var json = System.IO.File.ReadAllText($"{savePath}/RoomData.json");
+            ReadBtn.enabled = true;
+        }
+        catch
+        {
+            ReadBtn.enabled = false;
+        }
     }
 
 }
