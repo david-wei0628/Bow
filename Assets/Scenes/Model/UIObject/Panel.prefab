@@ -413,6 +413,7 @@ MonoBehaviour:
   PlayerCS: {fileID: 0}
   Type1: {fileID: 0}
   Type2: {fileID: 0}
+  MiniMap: {fileID: 0}
   DoorORWall: {fileID: 0}
 --- !u!1 &7378656962429099987
 GameObject:
@@ -565,6 +566,7 @@ MonoBehaviour:
   PlayerCS: {fileID: 0}
   Type1: {fileID: 7065663065087204754, guid: 53e9bf840cf2b6b499f77ff7418554f9, type: 3}
   Type2: {fileID: 16486534640308137, guid: 6226367e8efa8354fa23d54c08f31ed7, type: 3}
+  MiniMap: {fileID: 8902346925570773365, guid: 92d5bc20490f83c418cc57afc1243edc, type: 3}
   DoorORWall: {fileID: 8025867694117804839, guid: a1c585287c94b1c449c56b5fcc09a55a, type: 3}
 --- !u!1 &7523616350638617279
 GameObject:
@@ -799,6 +801,7 @@ MonoBehaviour:
   PlayerCS: {fileID: 0}
   Type1: {fileID: 0}
   Type2: {fileID: 0}
+  MiniMap: {fileID: 0}
   DoorORWall: {fileID: 0}
 --- !u!1 &8122699521824258821
 GameObject:
@@ -1033,4 +1036,5 @@ MonoBehaviour:
   PlayerCS: {fileID: 0}
   Type1: {fileID: 7065663065087204754, guid: 53e9bf840cf2b6b499f77ff7418554f9, type: 3}
   Type2: {fileID: 16486534640308137, guid: 6226367e8efa8354fa23d54c08f31ed7, type: 3}
+  MiniMap: {fileID: 8902346925570773365, guid: 92d5bc20490f83c418cc57afc1243edc, type: 3}
   DoorORWall: {fileID: 8025867694117804839, guid: a1c585287c94b1c449c56b5fcc09a55a, type: 3}

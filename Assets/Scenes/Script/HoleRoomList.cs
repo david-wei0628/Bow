@@ -27,28 +27,28 @@ public class HoleRoomList : MonoBehaviour
     //public List<GameObject> ParentRoomPrefab;
     private void Awake()
     {
-        if (this.gameObject.name == "RoomScenesType1")
-        {
-            //RoomPos.Add(Vector3.zero);
-            RoomPrefab.Add(StartRoom);
-            RoomBranch.Add(StartRoom);
-            RoomLevel.Add(0);
+        //if (this.gameObject.name == "RoomScenesType1")
+        //{
+        //RoomPos.Add(Vector3.zero);
+        RoomPrefab.Add(StartRoom);
+        RoomBranch.Add(StartRoom);
+        RoomLevel.Add(0);
 
-            RoomPrefabID.Add(7);
-            RoomPrefabPosData.Add(StartRoom.transform.position);
-            RoomPrefabRotData.Add(StartRoom.transform.localEulerAngles);
-            RoomName.Add(StartRoom.name);
-            RoomID.Add(0);
+        RoomPrefabID.Add(7);
+        RoomPrefabPosData.Add(StartRoom.transform.position);
+        RoomPrefabRotData.Add(StartRoom.transform.localEulerAngles);
+        RoomName.Add(StartRoom.name);
+        RoomID.Add(0);
 
-            ClassRoom.RoomCount = RoomPrefab.Count;
-            //LevelBool FlashRom = new LevelBool();
-            //FlashRom.level = 0;
-            //FlashRom.Bool = true;  
+        ClassRoom.RoomCount = RoomPrefab.Count;
+        //LevelBool FlashRom = new LevelBool();
+        //FlashRom.level = 0;
+        //FlashRom.Bool = true;  
 
-            //NextRoomIns.Add(0, FlashRom);
+        //NextRoomIns.Add(0, FlashRom);
 
-            ClassRoom.RList = RoomPrefab;
-        }
+        ClassRoom.RList = RoomPrefab;
+        //}
     }
 
     public void RoomData()

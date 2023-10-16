@@ -10,6 +10,7 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     public GameObject PlayerCS;
     public GameObject Type1;
     public GameObject Type2;
+    public GameObject MiniMap;
 
     public GameObject DoorORWall;
     //public RoomListData RoomData;
@@ -90,7 +91,7 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         GameObject DoorWall = Instantiate(DoorORWall, Vector3.zero, Quaternion.identity);
         DoorWall.name = "DoorORWall";
     }
-
+    
     public void ReadBTN_even()
     {
         DoorWallGrap();

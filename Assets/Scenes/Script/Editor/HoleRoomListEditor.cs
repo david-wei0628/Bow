@@ -52,7 +52,7 @@ public class HoleRoomListEditor : Editor
             GUILayout.EndHorizontal();
         }
 
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
     }
 
 }

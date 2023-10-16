@@ -13,6 +13,7 @@ public class HoleRoomGenerate : MonoBehaviour
     private bool[] AroundBool = new bool[4];
     //0->Forward|1->Back|2->Left|3->Right
     bool[] NextAroundBool = new bool[4];
+    bool LastRound = false;
 
     private GameObject Plane;
     private bool DWINS = true;
@@ -25,27 +26,26 @@ public class HoleRoomGenerate : MonoBehaviour
     //Vector3 R = new Vector3(10, 10, 0);
     Vector3 R = Vector3.right * 10;
 
-    //void Start() => ExporTo();
+    void Start() => ExporTo();
 
-    //private void FixedUpdate()
-    //{
-    //    if (Plane.transform.position.y == 0 && DWINS)
-    //    {
-    //        DoorWall();
-    //    }
-    //}
+    private void FixedUpdate()
+    {
+        if (Plane.transform.position.y == 0 && DWINS)
+        {
+            DoorWall();
+        }
+    }
 
     /// <summary>
     /// ¶¡¶Z10
     /// </summary>
-    public void HoleRoomBuilder()
+    public void HoleRoomBuilder(bool LastFlag)
     {
         Vector3 NewPos = this.transform.position;
         GameObject GrapGameObject = gameObject.transform.parent.gameObject;
-
         //ClassRoom.RV3 = this.gameObject;
         //GameObject.Find("RoomScenes").GetComponent<RoomList>().RoomData();
-
+        LastRound = LastFlag;
         NextRoomIns(NewPos, GrapGameObject);
 
         //Destroy(Plane.GetComponent<RoomWallInstan>());
@@ -55,32 +55,33 @@ public class HoleRoomGenerate : MonoBehaviour
     void RangeRoom(Vector3 NewPos, string Entrance, GameObject GrapGameObject)
     {
         int NextRoomType;
-        if (ClassRoom.RoomCount > 10 /*&& ClassRoom.RoomCount == 1*/)
-        {
-            NextRoomType = Random.Range(0, HoleRoomList.Count);
-        }
-        else if (ClassRoom.RoomCount >= 27)
+        if (ClassRoom.RoomCount >= 25 || LastRound)
         {
             NextRoomType = 0;
-        }
-        else
+        }        
+        else if (ClassRoom.RoomCount < 10)
         {
             NextRoomType = Random.Range(1, HoleRoomList.Count);
         }
+        else
+        {
+            NextRoomType = Random.Range(0, HoleRoomList.Count);
+        }
+        
 
         GameObject NewRoom;
         NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
 
         //NewRoom = Instantiate(HoleRoomList[0], NewPos, Quaternion.identity, GrapGameObject.transform);
         //NewRoom.name = "HoleRoom";
-        if (ClassRoom.RoomCount == 1)
-        {
-            NewRoom.name = "Room 1";
-        }
-        else
-        {
-            NewRoom.name = "Room " + ClassRoom.RoomCount.ToString();
-        }
+        //if (ClassRoom.RoomCount == 1)
+        //{
+        //    NewRoom.name = "Room 1";
+        //}
+        //else
+        //{
+        NewRoom.name = "Room " + ClassRoom.RoomCount.ToString();
+        //}
 
         switch (Entrance)
         {
