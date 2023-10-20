@@ -16,6 +16,7 @@ public class HoleRoomList : MonoBehaviour
     public List<Vector3> RoomPrefabPosData;
     public List<Vector3> RoomPrefabRotData;
     public List<GameObject> RoomBranch;
+    public List<string> RoomBranchName;
     public Dictionary<int, LevelBool> NextRoomIns = new Dictionary<int, LevelBool>();
     public List<int> RoomLevel;
     public int LastLevel = 0;
@@ -32,6 +33,7 @@ public class HoleRoomList : MonoBehaviour
         //RoomPos.Add(Vector3.zero);
         RoomPrefab.Add(StartRoom);
         RoomBranch.Add(StartRoom);
+        RoomBranchName.Add(StartRoom.name);
         RoomLevel.Add(0);
 
         RoomPrefabID.Add(7);
@@ -55,6 +57,7 @@ public class HoleRoomList : MonoBehaviour
     {
         RoomPrefab.Add(ClassRoom.RV3);
         RoomBranch.Add(ClassRoom.RBG);
+        RoomBranchName.Add(ClassRoom.RBG.name);
 
         RoomPrefabPosData.Add(ClassRoom.RV3.transform.position);
         RoomPrefabRotData.Add(ClassRoom.RV3.transform.localEulerAngles);
@@ -73,10 +76,8 @@ public class HoleRoomList : MonoBehaviour
         AroundBool Around = new AroundBool();
         Around.list = ClassRoom.RoomAround;
         StartAround.Add(Around);
-
         var i = RoomPrefab.FindIndex(x => x == RV3);
-        var index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
-
+        //var index = RoomPrefab.FindIndex(x => x == RoomBranch[i]);
         LevelBool FlashRom = new LevelBool();
         FlashRom.level = RoomLevel[i];
         FlashRom.Bool = ClassRoom.RoomBool;
@@ -104,8 +105,9 @@ public class HoleRoomList : MonoBehaviour
         Roomdata.Level = RoomLevel;
         Roomdata.RoomPosData = RoomPrefabPosData;
         Roomdata.RoomRotData = RoomPrefabRotData;
-        Roomdata.RoomData = RoomPrefab;
+        //Roomdata.RoomData = RoomPrefab;
         Roomdata.RoomPreFabID = RoomPrefabID;
+        Roomdata.RoomBranchName = RoomBranchName;
 
         var json = JsonUtility.ToJson(Roomdata);
 
@@ -146,6 +148,8 @@ public class HoleRoomList : MonoBehaviour
         else
         {
             RoomLevel = roomListData.Level;
+            RoomBranchName = roomListData.RoomBranchName;
+            
             //RoomPrefab = roomListData.RoomData;
             for (int i = 1; i < roomListData.RoomData.Count; i++)
             {
@@ -154,11 +158,15 @@ public class HoleRoomList : MonoBehaviour
                 RoomObject.name = "Room " + i;
                 RoomObject.transform.position = roomListData.RoomPosData[i];
                 RoomObject.transform.localEulerAngles = roomListData.RoomRotData[i];
+               
                 RoomPrefab.Add(RoomObject);
+                GameObject BranchObject = GameObject.Find(roomListData.RoomBranchName[i]);
+                RoomBranch.Add(BranchObject);
                 if (LastLevel < RoomLevel[i])
                 {
                     LastLevel = RoomLevel[i];
                 }
+                //Destroy(RoomObject.gameObject.GetComponent<HoleRoomGenerate>());
             }
             gameObject.GetComponent<RoomListType2>().MiniMapPlane();
         }
@@ -197,6 +205,7 @@ public class RoomListData
 {
     public List<int> ID;
     public List<string> RoomName;
+    public List<string> RoomBranchName;
     public List<int> Level;
     public List<Vector3> RoomPosData;
     public List<Vector3> RoomRotData;

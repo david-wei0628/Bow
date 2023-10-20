@@ -9,7 +9,7 @@ public class JellyMesh : MonoBehaviour
     public float stiffness = 1f; //剛性預設值
     public float damping = 0.75f;//彈性預設值
     private Mesh OriginalMesh, MeshClone;
-    private MeshRenderer renderer;
+    private new MeshRenderer renderer;
     private JellyVertex[] jv;
     private Vector3[] vertexArray;
 

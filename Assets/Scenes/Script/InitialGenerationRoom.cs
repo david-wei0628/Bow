@@ -28,7 +28,6 @@ public class InitialGenerationRoom : MonoBehaviour
 
         if (RoomPos.Count > 27 || RestRoom >= RoomPos.Count)
         {
-            print(RestRoom + " " + RoomPos.Count);
             LastRound();
             LastLevelRoom();
             Destroy(this.gameObject.GetComponent<InitialGenerationRoom>());
@@ -39,7 +38,7 @@ public class InitialGenerationRoom : MonoBehaviour
     {
         try
         {
-            RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWall();
+            RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().DoorWallType1();
             RoomPos[RestRoom].gameObject.GetComponent<HoleRoomGenerate>().HoleRoomBuilder(false);
             RestRoom++;
         }

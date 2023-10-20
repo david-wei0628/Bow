@@ -24,7 +24,7 @@ public class RoomListType2 : MonoBehaviour
         var LastLevel = this.gameObject.GetComponent<HoleRoomList>().LastLevel;
         var LevelList = this.gameObject.GetComponent<HoleRoomList>().RoomLevel;
         gameObject.GetComponent<HoleRoomList>().RoomEven = false;
-        for (int i = LevelList.Count - 2; LevelList[i] >= LastLevel - 1; i--)
+        for (int i = LevelList.Count - 1; LevelList[i] >= LastLevel - 1; i--)
         {
             if (RoomPrefab[i].tag == "One")
             {

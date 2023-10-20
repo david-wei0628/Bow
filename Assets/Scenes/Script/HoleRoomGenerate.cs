@@ -17,6 +17,7 @@ public class HoleRoomGenerate : MonoBehaviour
 
     private GameObject Plane;
     private bool DWINS = true;
+    string ParentGroup;
     //Vector3 F = new Vector3(0, 10, 10);
     Vector3 F = Vector3.forward * 10;
     //Vector3 B = new Vector3(0, 10, -10);
@@ -32,7 +33,16 @@ public class HoleRoomGenerate : MonoBehaviour
     {
         if (Plane.transform.position.y == 0 && DWINS)
         {
-            DoorWall();
+            switch (ParentGroup)
+            {
+                case "RoomScenesType1":
+                    DoorWallType1();
+                    break;
+                case "RoomScenesType2":
+                    DoorWallType2();
+                    break;
+
+            }
         }
     }
 
@@ -58,7 +68,7 @@ public class HoleRoomGenerate : MonoBehaviour
         if (ClassRoom.RoomCount >= 25 || LastRound)
         {
             NextRoomType = 0;
-        }        
+        }
         else if (ClassRoom.RoomCount < 10)
         {
             NextRoomType = Random.Range(1, HoleRoomList.Count);
@@ -67,7 +77,7 @@ public class HoleRoomGenerate : MonoBehaviour
         {
             NextRoomType = Random.Range(0, HoleRoomList.Count);
         }
-        
+
 
         GameObject NewRoom;
         NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
@@ -173,7 +183,7 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         ClassRoom.RoomAround = NextAroundBool;
         ClassRoom.RoomBool = NextLevelBool();
-
+        ParentGroup = this.gameObject.transform.parent.gameObject.name;
         this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RA(gameObject);
     }
 
@@ -212,7 +222,7 @@ public class HoleRoomGenerate : MonoBehaviour
         }
     }
 
-    public void DoorWall()
+    public void DoorWallType1()
     {
         if (NextAroundBool[0])
         {
@@ -294,6 +304,87 @@ public class HoleRoomGenerate : MonoBehaviour
         {
             Destroy(this.gameObject.GetComponent<HoleRoomGenerate>());
         }
+    }
+
+    public void DoorWallType2()
+    {
+        if (NextAroundBool[0])
+        {
+            if (AroundRoom(F))
+            {
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+            }
+            else
+            {
+                if (this.transform.localEulerAngles.y == 180)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+                }
+            }
+        }
+
+        if (NextAroundBool[1])
+        {
+            if (AroundRoom(B))
+            {
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+            }
+            else
+            {
+                if (this.transform.localEulerAngles.y == 0)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+                }
+            }
+        }
+
+        if (NextAroundBool[2])
+        {
+            if (AroundRoom(L))
+            {
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+            }
+            else
+            {
+                if (this.transform.localEulerAngles.y == 90)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+                }
+            }
+        }
+
+        if (NextAroundBool[3])
+        {
+            if (AroundRoom(R))
+            {
+                Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+            }
+            else
+            {
+                if (this.transform.localEulerAngles.y == 270)
+                {
+                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+                }
+                else
+                {
+                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+                }
+            }
+        }
+        DWINS = false;
+        Destroy(this.gameObject.GetComponent<HoleRoomGenerate>());
     }
 
     public bool NextLevelBool()

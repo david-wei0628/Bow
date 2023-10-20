@@ -53,10 +53,12 @@ MonoBehaviour:
   RoomPrefabPosData: []
   RoomPrefabRotData: []
   RoomBranch: []
+  RoomBranchName: []
   RoomLevel: 
   LastLevel: 0
   RoomEven: 1
   RoomID: 
+  RoomPrefabID: 
   RoomName: []
 --- !u!114 &16486534640308143
 MonoBehaviour:
@@ -158,6 +160,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8462952770362677189, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462952770362677189, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
       propertyPath: AroundBool.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
@@ -169,8 +175,7 @@ PrefabInstance:
       propertyPath: AroundBool.Array.data[3]
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8462952770362677189, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7bbac49c0e6b3a408b96ebce0a9b18d, type: 3}
 --- !u!1 &4300561125598270564 stripped
 GameObject:
