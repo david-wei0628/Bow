@@ -12,7 +12,6 @@ public class RoomWallInstan : MonoBehaviour
     {
         DoorROWallGroup = GameObject.Find("DoorORWall");
         GameObject WallObject;
-        //WallObject = Instantiate(Wall, OnPos.position, Quaternion.identity/*, this.gameObject.transform*/);
         WallObject = Instantiate(Door, OnPos.position, Quaternion.identity, DoorROWallGroup.transform);
         switch (Direc)
         {
@@ -39,7 +38,6 @@ public class RoomWallInstan : MonoBehaviour
     {
         DoorROWallGroup = GameObject.Find("DoorORWall");
         GameObject WallObject;
-        //WallObject = Instantiate(Wall, OnPos.position, Quaternion.identity/*, this.gameObject.transform*/);
         WallObject = Instantiate(Wall, OnPos.position, Quaternion.identity, DoorROWallGroup.transform);
         switch (Direc)
         {

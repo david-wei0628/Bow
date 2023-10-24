@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class HoleRoomGenerate : MonoBehaviour
 {
-    public List<GameObject> HoleRoomList;
+    public List<GameObject> HoleRoomPrefabList;
     [SerializeField]
     private bool[] AroundBool = new bool[4];
     //0->Forward|1->Back|2->Left|3->Right
@@ -39,7 +39,8 @@ public class HoleRoomGenerate : MonoBehaviour
                     DoorWallType1();
                     break;
                 case "RoomScenesType2":
-                    DoorWallType2();
+                    print(this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch.Count);
+                    //DoorWallType2();
                     break;
 
             }
@@ -71,27 +72,17 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         else if (ClassRoom.RoomCount < 10)
         {
-            NextRoomType = Random.Range(1, HoleRoomList.Count);
+            NextRoomType = Random.Range(1, HoleRoomPrefabList.Count);
         }
         else
         {
-            NextRoomType = Random.Range(0, HoleRoomList.Count);
+            NextRoomType = Random.Range(0, HoleRoomPrefabList.Count);
         }
 
-
         GameObject NewRoom;
-        NewRoom = Instantiate(HoleRoomList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
+        NewRoom = Instantiate(HoleRoomPrefabList[NextRoomType], NewPos, Quaternion.identity, GrapGameObject.transform);
 
-        //NewRoom = Instantiate(HoleRoomList[0], NewPos, Quaternion.identity, GrapGameObject.transform);
-        //NewRoom.name = "HoleRoom";
-        //if (ClassRoom.RoomCount == 1)
-        //{
-        //    NewRoom.name = "Room 1";
-        //}
-        //else
-        //{
         NewRoom.name = "Room " + ClassRoom.RoomCount.ToString();
-        //}
 
         switch (Entrance)
         {
@@ -113,8 +104,6 @@ public class HoleRoomGenerate : MonoBehaviour
                 break;
         }
 
-        //ClassRoom.RV3 = NewRoom.transform.position;
-
         ClassRoom.RV3 = NewRoom;
         ClassRoom.RBG = this.gameObject;
         ClassRoom.RoomID = ClassRoom.RoomCount;
@@ -123,14 +112,13 @@ public class HoleRoomGenerate : MonoBehaviour
 
         this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomData();
 
-        //GameObject.Find("RoomScenes").GetComponent<Other>().RoomExit();
-
-        //Destroy(this.gameObject);
     }
 
     bool AroundRoom(Vector3 NextRoomPos)
     {
         //var NRP = this.transform.position + NextRoomPos;
+        //var NUP1 = ClassRoom.RList.Exists(R => R.transform.position != (this.transform.position + NextRoomPos));
+        //print(this.gameObject.name+"/ "+this.transform.position.ToString() + "/" + NextRoomPos.ToString() + "/ " + NUP1);
 
         foreach (GameObject NRP in ClassRoom.RList)
         {
@@ -141,8 +129,6 @@ public class HoleRoomGenerate : MonoBehaviour
         }
         return true;
 
-        //var NUP = ClassRoom.RList.Exists(R => R.transform.position == (this.transform.position + NextRoomPos));
-        //print(NUP);
         //return NUP;
 
     }
@@ -182,7 +168,7 @@ public class HoleRoomGenerate : MonoBehaviour
                 break;
         }
         ClassRoom.RoomAround = NextAroundBool;
-        ClassRoom.RoomBool = NextLevelBool();
+        //ClassRoom.RoomBool = NextLevelBool();
         ParentGroup = this.gameObject.transform.parent.gameObject.name;
         this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RA(gameObject);
     }
@@ -308,81 +294,117 @@ public class HoleRoomGenerate : MonoBehaviour
 
     public void DoorWallType2()
     {
+        var BranchList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch;
+        var RooomList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
+
         if (NextAroundBool[0])
         {
-            if (AroundRoom(F))
+            if (this.transform.localEulerAngles.y == 180)
             {
                 Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
             }
             else
             {
-                if (this.transform.localEulerAngles.y == 180)
+                foreach (GameObject NRP in ClassRoom.RList)
                 {
-                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
-                }
-                else
-                {
-                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+                    if (NRP.transform.position == (this.transform.position + F))
+                    {
+                        var i = RooomList.FindIndex(x => x == NRP);
+                        if (BranchList[i].name == this.name)
+                        {
+                            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
+                        }
+                        else
+                        {
+                            Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "F");
+                        }
+                        break;
+                    }
                 }
             }
         }
 
         if (NextAroundBool[1])
         {
-            if (AroundRoom(B))
+            if (this.transform.localEulerAngles.y == 0)
             {
                 Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
             }
             else
             {
-                if (this.transform.localEulerAngles.y == 0)
+                foreach (GameObject NRP in ClassRoom.RList)
                 {
-                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
-                }
-                else
-                {
-                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+                    if (NRP.transform.position == (this.transform.position + B))
+                    {
+                        var i = RooomList.FindIndex(x => x == NRP);
+                        if (BranchList[i].name == this.name)
+                        {
+                            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "B");
+                        }
+                        else
+                        {
+                            Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "B");
+                        }
+                        break;
+                    }
                 }
             }
         }
 
         if (NextAroundBool[2])
         {
-            if (AroundRoom(L))
+            if (this.transform.localEulerAngles.y == 90)
             {
                 Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
             }
             else
             {
-                if (this.transform.localEulerAngles.y == 90)
+                foreach (GameObject NRP in ClassRoom.RList)
                 {
-                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
-                }
-                else
-                {
-                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+                    if (NRP.transform.position == (this.transform.position + L))
+                    {
+                        var i = RooomList.FindIndex(x => x == NRP);
+                        if (BranchList[i].name == this.name)
+                        {
+                            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "L");
+                        }
+                        else
+                        {
+                            Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "L");
+                        }
+                        break;
+                    }
                 }
             }
         }
 
         if (NextAroundBool[3])
         {
-            if (AroundRoom(R))
+            if (this.transform.localEulerAngles.y == 270)
             {
                 Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
             }
             else
             {
-                if (this.transform.localEulerAngles.y == 270)
+                foreach (GameObject NRP in ClassRoom.RList)
                 {
-                    Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
-                }
-                else
-                {
-                    Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+                    if (NRP.transform.position == (this.transform.position + R))
+                    {
+                        var i = RooomList.FindIndex(x => x == NRP);
+                        if (BranchList[i].name == this.name)
+                        {
+                            Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "R");
+                        }
+                        else
+                        {
+                            Plane.GetComponent<RoomWallInstan>().WallInstanEven(this.transform, "R");
+                        }
+                        break;
+                    }
                 }
             }
         }
+
         DWINS = false;
         Destroy(this.gameObject.GetComponent<HoleRoomGenerate>());
     }

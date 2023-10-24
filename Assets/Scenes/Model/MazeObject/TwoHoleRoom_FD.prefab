@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dceaae988308d334f9db2b635a73e122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoleRoomList:
+  HoleRoomPrefabList:
   - {fileID: 5685312188324054340, guid: 338c88719baf9c74c84ffa5e66f9db0c, type: 3}
   - {fileID: 5322512534842979361}
   - {fileID: 5322512534842979361, guid: 2e8fd4cf6eb66ee4cb7177ef128e2834, type: 3}

@@ -34,18 +34,21 @@ public class HoleRoomListEditor : Editor
             EditorGUILayout.ObjectField(obj: RoomList.RoomBranch[i], objType: typeof(GameObject), true);
             GUILayout.EndHorizontal();
 
-            //GUILayout.BeginHorizontal();
-            //GUILayout.Label("Entrance/Exit");
-            //EditorGUILayout.Space();
-            //EditorGUILayout.LabelField("F", GUILayout.MaxWidth(10.0f));
-            //EditorGUILayout.Toggle(RoomList.StartAround[i].list[0], GUILayout.MaxWidth(20.0f));
-            //EditorGUILayout.LabelField("B", GUILayout.MaxWidth(10.0f));
-            //EditorGUILayout.Toggle(RoomList.StartAround[i].list[1], GUILayout.MaxWidth(20.0f));
-            //EditorGUILayout.LabelField("L", GUILayout.MaxWidth(10.0f));
-            //EditorGUILayout.Toggle(RoomList.StartAround[i].list[2], GUILayout.MaxWidth(20.0f));
-            //EditorGUILayout.LabelField("R", GUILayout.MaxWidth(10.0f));
-            //EditorGUILayout.Toggle(RoomList.StartAround[i].list[3], GUILayout.MaxWidth(20.0f));
-            //GUILayout.EndHorizontal();
+            if (RoomList.gameObject.name == "RoomScenesType1")
+            {
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Entrance/Exit");
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("F", GUILayout.MaxWidth(10.0f));
+                EditorGUILayout.Toggle(RoomList.StartAround[i].list[0], GUILayout.MaxWidth(20.0f));
+                EditorGUILayout.LabelField("B", GUILayout.MaxWidth(10.0f));
+                EditorGUILayout.Toggle(RoomList.StartAround[i].list[1], GUILayout.MaxWidth(20.0f));
+                EditorGUILayout.LabelField("L", GUILayout.MaxWidth(10.0f));
+                EditorGUILayout.Toggle(RoomList.StartAround[i].list[2], GUILayout.MaxWidth(20.0f));
+                EditorGUILayout.LabelField("R", GUILayout.MaxWidth(10.0f));
+                EditorGUILayout.Toggle(RoomList.StartAround[i].list[3], GUILayout.MaxWidth(20.0f));
+                GUILayout.EndHorizontal();
+            }
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("--------------------------------------------------------------------");
