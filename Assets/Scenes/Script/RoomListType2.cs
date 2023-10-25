@@ -28,7 +28,7 @@ public class RoomListType2 : MonoBehaviour
         {
             if (RoomPrefab[i].tag == "One")
             {
-                Instantiate(plane, RoomPrefab[i].transform.position + Vector3.down, PlaneRot, GameObject.Find("MiniMapGraup").transform);
+                Instantiate(plane, RoomPrefab[i].transform.position + Vector3.down, PlaneRot, GameObject.Find("MiniMapPlane").transform);
             }
         }
         Destroy(plane, 0.1f);

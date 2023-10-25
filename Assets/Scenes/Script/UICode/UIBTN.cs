@@ -55,10 +55,13 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
 
     public void InitialRoomBTN_even()
     {
-        //GameObject.Find("AL").transform.GetChild(0).gameObject.SetActive(true);
-        //GameObject.Find("AL").transform.GetChild(1).gameObject.SetActive(false);
-
+        AllPlaneDes();
         DoorWallGrap();
+
+        if (GameObject.Find(Type2.name))
+        {
+            Destroy(GameObject.Find(Type2.name));
+        }
 
         if (!GameObject.Find(Type1.name))
         {
@@ -67,16 +70,12 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         }
         else
         {
-            Destroy(GameObject.Find(Type1.name).gameObject);
+            Destroy(GameObject.Find(Type1.name));
             GameObject RoomList = Instantiate(Type1, Vector3.zero, Quaternion.identity);
             RoomList.name = "RoomScenesType1";
         }
 
 
-        if (GameObject.Find(Type2.name))
-        {
-            Destroy(GameObject.Find(Type2.name).gameObject);
-        }
 
         Destroy(GameObject.Find(UIMenu.name));
     }
@@ -91,10 +90,22 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         GameObject DoorWall = Instantiate(DoorORWall, Vector3.zero, Quaternion.identity);
         DoorWall.name = "DoorORWall";
     }
-    
+
+    void AllPlaneDes()
+    {
+        Destroy(GameObject.Find("MiniMapPlane"));
+        new GameObject("MiniMapPlane").transform.parent = GameObject.Find("MiniMapGraup").transform;
+    }
+
     public void ReadBTN_even()
     {
+        AllPlaneDes();
         DoorWallGrap();
+
+        if (GameObject.Find(Type1.name))
+        {
+            Destroy(GameObject.Find(Type1.name).gameObject);
+        }
 
         if (!GameObject.Find(Type2.name))
         {
@@ -104,16 +115,10 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         }
         else
         {
-            Destroy(GameObject.Find(Type2.name).gameObject);
+            Destroy(GameObject.Find(Type2.name));
             GameObject RoomList = Instantiate(Type2, Vector3.zero, Quaternion.identity);
             RoomList.name = "RoomScenesType2";
             RoomList.GetComponent<HoleRoomList>().ReadRoomList();
-        }
-
-
-        if (GameObject.Find(Type1.name))
-        {
-            Destroy(GameObject.Find(Type1.name).gameObject);
         }
 
         Destroy(GameObject.Find(UIMenu.name));

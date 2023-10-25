@@ -156,15 +156,17 @@ public class HoleRoomList : MonoBehaviour
                 RoomObject.transform.localEulerAngles = roomListData.RoomRotData[i];
 
                 RoomPrefab.Add(RoomObject);
-                GameObject BranchObject = GameObject.Find(roomListData.RoomBranchName[i]);
+                GameObject BranchObject = RoomPrefab.Find(R => R.name == roomListData.RoomBranchName[i]);
                 RoomBranch.Add(BranchObject);
+
                 if (LastLevel < RoomLevel[i])
                 {
                     LastLevel = RoomLevel[i];
                 }
                 //Destroy(RoomObject.gameObject.GetComponent<HoleRoomGenerate>());
             }
-            gameObject.GetComponent<RoomListType2>().MiniMapPlane();            
+
+            gameObject.GetComponent<RoomListType2>().MiniMapPlane();
         }
 
     }

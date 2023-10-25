@@ -39,8 +39,7 @@ public class HoleRoomGenerate : MonoBehaviour
                     DoorWallType1();
                     break;
                 case "RoomScenesType2":
-                    print(this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch.Count);
-                    //DoorWallType2();
+                    DoorWallType2();
                     break;
 
             }
@@ -296,7 +295,6 @@ public class HoleRoomGenerate : MonoBehaviour
     {
         var BranchList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch;
         var RooomList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
-
         if (NextAroundBool[0])
         {
             if (this.transform.localEulerAngles.y == 180)
