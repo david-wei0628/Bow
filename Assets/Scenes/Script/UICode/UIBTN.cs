@@ -75,8 +75,6 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
             RoomList.name = "RoomScenesType1";
         }
 
-
-
         Destroy(GameObject.Find(UIMenu.name));
     }
 
@@ -101,7 +99,6 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     {
         AllPlaneDes();
         DoorWallGrap();
-
         if (GameObject.Find(Type1.name))
         {
             Destroy(GameObject.Find(Type1.name).gameObject);

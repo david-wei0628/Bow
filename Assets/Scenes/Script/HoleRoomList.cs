@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Networking;
+using Newtonsoft.Json;
 
 /// <summary>
 /// passive script 
@@ -25,6 +27,8 @@ public class HoleRoomList : MonoBehaviour
     public List<int> RoomPrefabID;
     public List<string> RoomName;
 
+    //RoomListData Roomdata = new();
+    public string Data;
     //public List<GameObject> ParentRoomPrefab;
     private void Awake()
     {
@@ -128,6 +132,7 @@ public class HoleRoomList : MonoBehaviour
             var json = System.IO.File.ReadAllText($"{savePath}/RoomData.json");
             //反序列化成PlayerData物件
             var newPlayerData = JsonUtility.FromJson<RoomListData>(json);
+            //StartCoroutine(webjson());
             //回傳腳色資料
             return newPlayerData;
         }
@@ -138,8 +143,27 @@ public class HoleRoomList : MonoBehaviour
 
     }
 
+    IEnumerator webjson()
+    {
+        var SavePath2 = "https://raw.githubusercontent.com/david-wei0628/Dungeon/main/RoomData.json";
+        var json2 = UnityWebRequest.Get(SavePath2);
+        yield return json2.SendWebRequest();
+        Debug.Log(json2.downloadHandler.text);
+        Data = json2.downloadHandler.text;
+        //var download = new DownloadHandlerBuffer();
+        //json2.downloadHandler = download;
+        //Debug.Log(download.text);
+    }
+
+    //public IEnumerator ReadRoomList()
     public void ReadRoomList()
     {
+        //var SavePath2 = "https://raw.githubusercontent.com/david-wei0628/Dungeon/main/RoomData.json";
+        //var json2 = UnityWebRequest.Get(SavePath2);
+        //yield return json2.SendWebRequest();
+        //RoomListData roomListData = JsonUtility.FromJson<RoomListData>(json2.downloadHandler.text);
+        //Debug.Log(json2.downloadHandler.text);
+
         RoomListData roomListData = LoadAndDeserialize();
         if (roomListData == null)
         {
@@ -163,12 +187,9 @@ public class HoleRoomList : MonoBehaviour
                 {
                     LastLevel = RoomLevel[i];
                 }
-                //Destroy(RoomObject.gameObject.GetComponent<HoleRoomGenerate>());
             }
-
             gameObject.GetComponent<RoomListType2>().MiniMapPlane();
         }
-
     }
 }
 
