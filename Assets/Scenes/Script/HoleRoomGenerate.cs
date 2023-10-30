@@ -293,11 +293,12 @@ public class HoleRoomGenerate : MonoBehaviour
 
     public void DoorWallType2()
     {
+        print(this.transform.name);
         var BranchList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch;
         var RooomList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
         if (NextAroundBool[0])
         {
-            if (this.transform.localEulerAngles.y == 180)
+            if (this.transform.localEulerAngles.y == 180 || this.name == "StarHoleRoom")
             {
                 Plane.GetComponent<RoomWallInstan>().DoorInstanEven(this.transform, "F");
             }

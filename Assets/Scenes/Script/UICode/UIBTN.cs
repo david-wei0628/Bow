@@ -85,8 +85,9 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
             Destroy(GameObject.Find("DoorORWall"));
         }
 
-        GameObject DoorWall = Instantiate(DoorORWall, Vector3.zero, Quaternion.identity);
-        DoorWall.name = "DoorORWall";
+        new GameObject("DoorORWall");
+        //GameObject DoorWall = Instantiate(DoorORWall, Vector3.zero, Quaternion.identity);
+        //DoorWall.name = "DoorORWall";
     }
 
     void AllPlaneDes()
@@ -108,14 +109,16 @@ public class UIBTN : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         {
             GameObject RoomList = Instantiate(Type2, Vector3.zero, Quaternion.identity);
             RoomList.name = "RoomScenesType2";
-            RoomList.GetComponent<HoleRoomList>().ReadRoomList();
+            //RoomList.GetComponent<HoleRoomList>().ReadRoomList();
+            RoomList.GetComponent<HoleRoomList>().ReadStart();
         }
         else
         {
             Destroy(GameObject.Find(Type2.name));
             GameObject RoomList = Instantiate(Type2, Vector3.zero, Quaternion.identity);
             RoomList.name = "RoomScenesType2";
-            RoomList.GetComponent<HoleRoomList>().ReadRoomList();
+            //RoomList.GetComponent<HoleRoomList>().ReadRoomList();
+            RoomList.GetComponent<HoleRoomList>().ReadStart();
         }
 
         Destroy(GameObject.Find(UIMenu.name));
