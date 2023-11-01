@@ -147,9 +147,10 @@ public class HoleRoomList : MonoBehaviour
 
     IEnumerator webjson()
     {
-        var SavePath2 = "https://raw.githubusercontent.com/david-wei0628/Dungeon/main/RoomData.json";
-        var json2 = UnityWebRequest.Get(SavePath2);
+        var SavePath = "https://raw.githubusercontent.com/david-wei0628/Dungeon/main/RoomData.json";
+        var json2 = UnityWebRequest.Get(SavePath);
         yield return json2.SendWebRequest();
+                print(json2.downloadedBytes);
         var ReadToJsonText = json2.downloadHandler.text;
         ReadRoomList(ReadToJsonText);
     }

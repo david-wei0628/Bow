@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class UIBtnActive : MonoBehaviour
 {
@@ -9,19 +10,34 @@ public class UIBtnActive : MonoBehaviour
     public Button ReadBtn;
     public Button SaveBtn;
 
-    void Awake()
-    {
-        var savePath = Application.persistentDataPath;
+    //void Awake()
+    //{
+    //    var savePath = Application.persistentDataPath;
 
-        try
+    //    try
+    //    {
+    //        var json = System.IO.File.ReadAllText($"{savePath}/RoomData.json");
+    //        ReadBtn.enabled = true;
+    //    }
+    //    catch
+    //    {
+    //        ReadBtn.enabled = false;
+    //    }
+    //}
+
+    private IEnumerator Start()
+    {
+        var SavePath = "https://raw.githubusercontent.com/david-wei0628/Dungeon/main/RoomData.json";
+        var json = UnityWebRequest.Head(SavePath);
+        yield return json.SendWebRequest();
+
+        if (json.responseCode == 200)
         {
-            var json = System.IO.File.ReadAllText($"{savePath}/RoomData.json");
             ReadBtn.enabled = true;
         }
-        catch
+        else
         {
             ReadBtn.enabled = false;
         }
     }
-
 }

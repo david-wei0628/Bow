@@ -293,7 +293,6 @@ public class HoleRoomGenerate : MonoBehaviour
 
     public void DoorWallType2()
     {
-        print(this.transform.name);
         var BranchList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomBranch;
         var RooomList = this.gameObject.transform.parent.gameObject.GetComponent<HoleRoomList>().RoomPrefab;
         if (NextAroundBool[0])
