@@ -17,8 +17,8 @@ public class HoleRoomListEditor : Editor
             EditorGUILayout.LabelField(i.ToString(), GUILayout.MaxWidth(20.0f));
             EditorGUILayout.LabelField("Level", GUILayout.MaxWidth(60.0f));
             EditorGUILayout.LabelField(RoomList.RoomLevel[i].ToString(), GUILayout.MaxWidth(20.0f));
-            //EditorGUILayout.LabelField(RoomList.NextRoomIns[i].level.ToString(), GUILayout.MaxWidth(100.0f));
-            //EditorGUILayout.LabelField(RoomList.NextRoomIns[i].Bool.ToString(), GUILayout.MaxWidth(100.0f));
+            EditorGUILayout.LabelField(RoomList.NextRoomInsa[i].level.ToString(), GUILayout.MaxWidth(100.0f));
+            EditorGUILayout.LabelField(RoomList.NextRoomInsa[i].Bool.ToString(), GUILayout.MaxWidth(100.0f));
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();

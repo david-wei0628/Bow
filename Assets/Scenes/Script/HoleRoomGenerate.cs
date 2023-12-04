@@ -27,7 +27,7 @@ public class HoleRoomGenerate : MonoBehaviour
     //Vector3 R = new Vector3(10, 10, 0);
     Vector3 R = Vector3.right * 10;
 
-    void Start() => ExporTo();
+    void Start() => ExporTo(); 
 
     private void FixedUpdate()
     {

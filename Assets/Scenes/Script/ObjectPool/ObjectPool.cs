@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+    public List<Handheld> a;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +16,11 @@ public class ObjectPool : MonoBehaviour
     {
         
     }
+}
+
+public class BB
+{
+    public string name;
+    public string description;
+    public int id;
 }

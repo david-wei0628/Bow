@@ -20,6 +20,7 @@ public class HoleRoomList : MonoBehaviour
     public List<GameObject> RoomBranch;
     public List<string> RoomBranchName;
     public Dictionary<int, LevelBool> NextRoomIns = new Dictionary<int, LevelBool>();
+    public List<LevelBool> NextRoomInsa;
     public List<int> RoomLevel;
     public int LastLevel = 0;
     public bool RoomEven = true;
@@ -84,7 +85,8 @@ public class HoleRoomList : MonoBehaviour
         LevelBool FlashRom = new LevelBool();
         FlashRom.level = RoomLevel[i];
         FlashRom.Bool = ClassRoom.RoomBool;
-        NextRoomIns.Add(i, FlashRom);
+        NextRoomIns.Add(i,FlashRom);
+        NextRoomInsa.Add(FlashRom);
     }
 
     public void Level()
@@ -178,14 +180,12 @@ public class HoleRoomList : MonoBehaviour
                 GameObject BranchObject = RoomPrefab.Find(R => R.name == roomListData.RoomBranchName[i]);
                 RoomBranch.Add(BranchObject);
 
-                if (LastLevel < RoomLevel[i])
-                {
-                    LastLevel = RoomLevel[i];
-                }
+                LastLevel = Mathf.Max(LastLevel,RoomLevel[i]);
             }
             gameObject.GetComponent<RoomListType2>().MiniMapPlane();
         }
     }
+
 }
 
 public class ClassRoom
