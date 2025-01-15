@@ -130,7 +130,7 @@ public class HoleRoomList : MonoBehaviour
         try//直接讀取有可能讀不到檔案(因為存檔沒有建立) 可以使用例外處理
         {
             //檔案怎麼存就怎麼讀
-            var json = System.IO.File.ReadAllText($"{savePath}/RoomData.json");
+            var json = System.IO.File.ReadAllText($"{savePath}/db.json");
             //反序列化成PlayerData物件
             var newPlayerData = JsonUtility.FromJson<RoomListData>(json);
             //StartCoroutine(webjson());

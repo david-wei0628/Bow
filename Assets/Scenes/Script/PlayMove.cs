@@ -37,14 +37,14 @@ public class PlayMove : MonoBehaviour
             this.transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * MoveSpeed);
         }
 
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Home))
-        {
-            this.transform.Translate(0, Time.deltaTime * MoveSpeed, 0);
-        }
-        if (Input.GetKey(KeyCode.End) && this.transform.position.y > 0.75f)
-        {
-            this.transform.Translate(0, -Time.deltaTime * MoveSpeed, 0);
-        }
+        //if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Home))
+        //{
+        //    this.transform.Translate(0, Time.deltaTime * MoveSpeed, 0);
+        //}
+        //if (Input.GetKey(KeyCode.End) && this.transform.position.y > 0.75f)
+        //{
+        //    this.transform.Translate(0, -Time.deltaTime * MoveSpeed, 0);
+        //}
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
